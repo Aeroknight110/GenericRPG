@@ -26,29 +26,42 @@ namespace GenericRPG {
       game.SetCharacter(character);
     }
 
-    private void FrmMap_KeyDown(object sender, KeyEventArgs e) {
-      MoveDir dir = MoveDir.NO_MOVE;
-      switch (e.KeyCode) {
-        case Keys.Left:
-          dir = MoveDir.LEFT;
-          break;
-        case Keys.Right:
-          dir = MoveDir.RIGHT;
-          break;
-        case Keys.Up:
-          dir = MoveDir.UP;
-          break;
-        case Keys.Down:
-          dir = MoveDir.DOWN;
-          break;
-      }
-      if (dir != MoveDir.NO_MOVE) {
-        character.Move(dir);
-        if (game.State == GameState.FIGHTING) {
-          FrmArena frmArena = new FrmArena();
-          frmArena.Show();
+        private void FrmMap_KeyDown(object sender, KeyEventArgs e)
+        {
+            MoveDir dir = MoveDir.NO_MOVE;
+            switch (e.KeyCode)
+            {
+                case Keys.Left:
+                    dir = MoveDir.LEFT;
+                    break;
+                case Keys.Right:
+                    dir = MoveDir.RIGHT;
+                    break;
+                case Keys.Up:
+                    dir = MoveDir.UP;
+                    break;
+                case Keys.Down:
+                    dir = MoveDir.DOWN;
+                    break;
+                case Keys.I:
+                    game.ChangeState(GameState.INVENTORY);
+                    break;
+
+            }
+            if (dir != MoveDir.NO_MOVE)
+            {
+                character.Move(dir);
+                if (game.State == GameState.FIGHTING)
+                {
+                    FrmArena frmArena = new FrmArena();
+                    frmArena.Show();
+                }
+            }
+            if (game.State == GameState.INVENTORY)
+            {
+                FrmInventory frmInventory = new FrmInventory();
+                frmInventory.Show();
+            }
         }
-      }
-    }
   }
 }
