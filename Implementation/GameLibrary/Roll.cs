@@ -2,6 +2,7 @@ using System;
 
 namespace GameLibrary {
   public class Roll {
+    //Roll's stats
     #region Constants
     private const float INIT_HEALTH = 50;
     private const float INIT_STR = 7;
