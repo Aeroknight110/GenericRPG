@@ -2,6 +2,7 @@ using System;
 
 namespace GameLibrary {
   public class Rush {
+    // Rush's stat
     #region Constants
     private const float INIT_HEALTH = 40;
     private const float INIT_STR = 15;
