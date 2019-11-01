@@ -33,6 +33,12 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.lblWeapon = new System.Windows.Forms.Label();
             this.lblHeadgear = new System.Windows.Forms.Label();
+            this.picWeapon = new System.Windows.Forms.PictureBox();
+            this.picInv1 = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picWeapon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picInv1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -50,6 +56,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.Controls.Add(this.picInv1, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 157);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
@@ -74,6 +81,7 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.picWeapon, 0, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(12, 90);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
@@ -110,6 +118,22 @@
             this.lblHeadgear.TabIndex = 4;
             this.lblHeadgear.Text = "Headgear";
             // 
+            // picWeapon
+            // 
+            this.picWeapon.Location = new System.Drawing.Point(5, 5);
+            this.picWeapon.Name = "picWeapon";
+            this.picWeapon.Size = new System.Drawing.Size(83, 50);
+            this.picWeapon.TabIndex = 0;
+            this.picWeapon.TabStop = false;
+            // 
+            // picInv1
+            // 
+            this.picInv1.Location = new System.Drawing.Point(5, 5);
+            this.picInv1.Name = "picInv1";
+            this.picInv1.Size = new System.Drawing.Size(83, 50);
+            this.picInv1.TabIndex = 0;
+            this.picInv1.TabStop = false;
+            // 
             // FrmInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -125,6 +149,10 @@
             this.Name = "FrmInventory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inventory";
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picWeapon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picInv1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,5 +165,7 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label lblWeapon;
         private System.Windows.Forms.Label lblHeadgear;
+        private System.Windows.Forms.PictureBox picWeapon;
+        private System.Windows.Forms.PictureBox picInv1;
     }
 }

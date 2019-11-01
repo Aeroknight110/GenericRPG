@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,14 +11,15 @@ namespace GameLibrary
     {
         private string _name;
         private int _ID;
+        public Bitmap Img { get; private set; }
 
         public Dictionary<int, string> itemList = new Dictionary<int, string>()
         {
-            {0, "Small Shooter"},
-            {1, "Small Potion"},
-            {2, "Beam Knife"},
-            {3, "Beam Axe"},
-            {4, "Fancy Hat"}
+            {1, "Small Shooter"},
+            {2, "Small Potion"},
+            {3, "Beam Knife"},
+            {4, "Beam Axe"},
+            {5, "Fancy Hat"}
         };
 
         public string name
@@ -30,10 +32,11 @@ namespace GameLibrary
             get { return _ID; }
         }
         
-        public Item(int id)
+        public Item(int id, Bitmap img)
         {
             _name = itemList[id];
             _ID = id;
+            Img = img;
         }
     }
 }

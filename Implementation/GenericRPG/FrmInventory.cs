@@ -14,9 +14,16 @@ namespace GenericRPG
     public partial class FrmInventory : Form
     {
         private Game game;
+        private Character character;
         public FrmInventory()
         {
             InitializeComponent();
+        }
+
+        private void invLoad(object sender, EventArgs e)
+        {
+            game = Game.GetGame();
+            character = game.Character;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
