@@ -12,7 +12,7 @@ namespace GenericRPG
         }
 
         /// When the "Play Game" button is pressed, close the menu and open the game
-        private void PlayGameButton_Click(object sender, EventArgs e)
+        private void NewGameButton_Click(object sender, EventArgs e)
         {
             this.Hide();
             FrmMap gameMap = new FrmMap();
