@@ -21,14 +21,14 @@ namespace GenericRPG
         
         /// Import to Change the Sound in the Game
         [DllImport("winmm.dll")]
-        private static extern int WaveOutSetVolume(IntPtr hwo, uint dwVolume);
+        private static extern int waveOutSetVolume(IntPtr hwo, uint dwVolume);
 
         /// Sets the Volume of the Game
         public static void SetVolume(int volume)
         {
             int NewVolume = ((ushort.MaxValue / 10) * volume);
             uint NewVolumeAllChannels = (((uint)NewVolume & 0x0000ffff) | ((uint)NewVolume << 16));
-            WaveOutSetVolume(IntPtr.Zero, NewVolumeAllChannels);
+            waveOutSetVolume(IntPtr.Zero, NewVolumeAllChannels);
         }
 
         /// If the Enable Sound box is checked, sets volume to 10. Otherwise, 0.

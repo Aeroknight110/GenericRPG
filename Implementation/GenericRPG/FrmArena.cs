@@ -2,6 +2,7 @@
 using GenericRPG.Properties;
 using System;
 using System.Drawing;
+using System.Media;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -58,6 +59,8 @@ namespace GenericRPG {
       lblEnemyHealth.Text = Math.Round(enemy.Health).ToString();
     }
     private void btnSimpleAttack_Click(object sender, EventArgs e) {
+      //SoundPlayer sp = new SoundPlayer(@"attack.wav");
+      //sp.Play();
       float prevEnemyHealth = enemy.Health;
       character.SimpleAttack(enemy);
       float enemyDamage = (float)Math.Round(prevEnemyHealth - enemy.Health);
