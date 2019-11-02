@@ -67,8 +67,7 @@ namespace GenericRPG {
       lblEnemyHealth.Text = Math.Round(enemy.Health).ToString();
     }
     private void btnSimpleAttack_Click(object sender, EventArgs e) {
-      /// Randomly chooses a sound effect from the array of sounds each time the simple attack button is pressed
-      (listOfSounds[new Random().Next(0, listOfSounds.Length)]).Play();
+      MakeSoundEffect();
       float prevEnemyHealth = enemy.Health;
       character.SimpleAttack(enemy);
       float enemyDamage = (float)Math.Round(prevEnemyHealth - enemy.Health);
@@ -140,6 +139,11 @@ namespace GenericRPG {
         tmrEnemyDamage.Enabled = false;
         lblEnemyDamage.Top = 52;
       }
+    }
+
+    /// Randomly chooses a sound effect from the array of sounds each time the simple attack button is pressed
+    public void MakeSoundEffect(){
+        (listOfSounds[new Random().Next(0, listOfSounds.Length)]).Play();    
     }
   }
 }
