@@ -13,6 +13,14 @@ namespace GenericRPG {
     private Enemy enemy;
     private Random rand;
 
+    /// Initalizes the different sounds
+    static SoundPlayer soundOne = new SoundPlayer(@"Resources/attack.wav");
+    static SoundPlayer soundTwo = new SoundPlayer(@"Resources/punch.wav");
+    static SoundPlayer soundThree = new SoundPlayer(@"Resources/slap.wav");
+    static SoundPlayer soundFour = new SoundPlayer(@"Resources/punches.wav");
+    /// Creates an array with the different sound options
+    SoundPlayer[] listOfSounds = {soundOne, soundTwo, soundThree, soundFour};
+
     public FrmArena() {
       InitializeComponent();
     }
@@ -59,8 +67,8 @@ namespace GenericRPG {
       lblEnemyHealth.Text = Math.Round(enemy.Health).ToString();
     }
     private void btnSimpleAttack_Click(object sender, EventArgs e) {
-      //SoundPlayer sp = new SoundPlayer(@"attack.wav");
-      //sp.Play();
+      /// Randomly chooses a sound effect from the array of sounds each time the simple attack button is pressed
+      (listOfSounds[new Random().Next(0, listOfSounds.Length)]).Play();
       float prevEnemyHealth = enemy.Health;
       character.SimpleAttack(enemy);
       float enemyDamage = (float)Math.Round(prevEnemyHealth - enemy.Health);
