@@ -68,8 +68,9 @@
             // 
             // enableSound
             // 
-            this.enableSound.AutoSize = true;
-            this.enableSound.Location = new System.Drawing.Point(615, 532);
+            this.enableSound.Checked = true;
+            this.enableSound.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.enableSound.Location = new System.Drawing.Point(625, 532);
             this.enableSound.Name = "enableSound";
             this.enableSound.Size = new System.Drawing.Size(233, 36);
             this.enableSound.TabIndex = 4;
