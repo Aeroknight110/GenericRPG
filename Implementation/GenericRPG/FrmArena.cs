@@ -25,7 +25,8 @@ namespace GenericRPG {
 
     public FrmArena() {
       InitializeComponent();
-    }
+      
+        }
     private void btnEndFight_Click(object sender, EventArgs e) {
       EndFight();
     }
@@ -38,13 +39,14 @@ namespace GenericRPG {
 
       game = Game.GetGame();
       character = game.Character;
-      enemy = new Enemy(rand.Next(character.Level + 1), Resources.enemy);
+      enemy = new Enemy(rand.Next(character.Level + 1), Resources.enemyRedStanding);
 
       // stats
       UpdateStats();
 
       // pictures
-      picCharacter.BackgroundImage = character.Pic.BackgroundImage;
+      picCharacter.BackgroundImage = GenericRPG.Properties.Resources.characterStanding;
+      //picCharacter.BackgroundImage = character.Pic.BackgroundImage;
       picEnemy.BackgroundImage = enemy.Img;
 
       // names
@@ -72,7 +74,6 @@ namespace GenericRPG {
       MakeSoundEffect();
       _counter = 0;
       tmrAnimation.Enabled = true;
-      picCharacter.BackgroundImage = GenericRPG.Properties.Resources.enemy;
       tmrAnimation.Start();
       
       float prevEnemyHealth = enemy.Health;
@@ -114,7 +115,6 @@ namespace GenericRPG {
         }
         else {
           UpdateStats();
-          //picCharacter.BackgroundImage = GenericRPG.Properties.Resources.character;
         }
       }
     }
@@ -155,22 +155,21 @@ namespace GenericRPG {
         (listOfSounds[new Random().Next(0, listOfSounds.Length)]).Play();    
     }
 
-
+    /// Creates the appearance of the character punching when Simple Attack is pressed
     private void tmrAnimation_Tick(object sender, EventArgs e)
-        {
-            _counter++;
-            if (_counter <= 4)
-            {
-                
-                picCharacter.BackgroundImage = GenericRPG.Properties.Resources.enemy;
-            }
-            else
-            {
-                picCharacter.BackgroundImage = GenericRPG.Properties.Resources.character;
-                tmrAnimation.Stop();
-            }
-            
-
+    {
+        _counter++;
+        if (_counter <= 4)
+        {   
+            picCharacter.BackgroundImage = GenericRPG.Properties.Resources.character;
+            picEnemy.BackgroundImage = GenericRPG.Properties.Resources.enemyRed;
         }
+        else
+        {
+            picCharacter.BackgroundImage = GenericRPG.Properties.Resources.characterStanding;
+            picEnemy.BackgroundImage = GenericRPG.Properties.Resources.enemyRedStanding;
+            tmrAnimation.Stop();
+        }
+    }
   }
 }
