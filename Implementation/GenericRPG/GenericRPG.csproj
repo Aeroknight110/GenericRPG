@@ -133,7 +133,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="attack.wav" />
-    
     <Content Include="Resources\levelup.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

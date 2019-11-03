@@ -33,6 +33,7 @@
             this.new_game_button = new System.Windows.Forms.Button();
             this.enableSound = new System.Windows.Forms.CheckBox();
             this.load_game_button = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // game_title
@@ -40,7 +41,7 @@
             this.game_title.AutoSize = true;
             this.game_title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.game_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.game_title.Location = new System.Drawing.Point(552, 46);
+            this.game_title.Location = new System.Drawing.Point(552, 155);
             this.game_title.Name = "game_title";
             this.game_title.Size = new System.Drawing.Size(429, 76);
             this.game_title.TabIndex = 0;
@@ -50,7 +51,7 @@
             // enable_sound_label
             // 
             this.enable_sound_label.AutoSize = true;
-            this.enable_sound_label.Location = new System.Drawing.Point(639, 480);
+            this.enable_sound_label.Location = new System.Drawing.Point(629, 538);
             this.enable_sound_label.Name = "enable_sound_label";
             this.enable_sound_label.Size = new System.Drawing.Size(198, 32);
             this.enable_sound_label.TabIndex = 2;
@@ -58,7 +59,7 @@
             // 
             // new_game_button
             // 
-            this.new_game_button.Location = new System.Drawing.Point(565, 216);
+            this.new_game_button.Location = new System.Drawing.Point(565, 276);
             this.new_game_button.Name = "new_game_button";
             this.new_game_button.Size = new System.Drawing.Size(376, 73);
             this.new_game_button.TabIndex = 3;
@@ -71,7 +72,7 @@
             this.enableSound.AutoSize = true;
             this.enableSound.Checked = true;
             this.enableSound.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.enableSound.Location = new System.Drawing.Point(625, 532);
+            this.enableSound.Location = new System.Drawing.Point(620, 590);
             this.enableSound.Name = "enableSound";
             this.enableSound.Size = new System.Drawing.Size(233, 36);
             this.enableSound.TabIndex = 4;
@@ -82,23 +83,33 @@
             // 
             // load_game_button
             // 
-            this.load_game_button.Location = new System.Drawing.Point(565, 333);
+            this.load_game_button.Location = new System.Drawing.Point(565, 389);
             this.load_game_button.Name = "load_game_button";
             this.load_game_button.Size = new System.Drawing.Size(376, 73);
             this.load_game_button.TabIndex = 5;
             this.load_game_button.Text = "Load Game";
             this.load_game_button.UseVisualStyleBackColor = true;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.panel1.Location = new System.Drawing.Point(-2, -3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1512, 121);
+            this.panel1.TabIndex = 6;
+            // 
             // FrmTitleMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1508, 843);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.load_game_button);
             this.Controls.Add(this.enableSound);
             this.Controls.Add(this.new_game_button);
             this.Controls.Add(this.enable_sound_label);
             this.Controls.Add(this.game_title);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmTitleMenu";
             this.Text = "FrmTitleMenu";
             this.ResumeLayout(false);
@@ -113,5 +124,6 @@
         private System.Windows.Forms.Button new_game_button;
         private System.Windows.Forms.CheckBox enableSound;
         private System.Windows.Forms.Button load_game_button;
+        private System.Windows.Forms.Panel panel1;
     }
 }

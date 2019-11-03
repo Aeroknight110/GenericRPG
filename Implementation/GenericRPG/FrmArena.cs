@@ -13,6 +13,8 @@ namespace GenericRPG {
     private Enemy enemy;
     private Random rand;
 
+    public int _counter;
+
     /// Initalizes the different sounds
     static SoundPlayer soundOne = new SoundPlayer(@"Resources/attack.wav");
     static SoundPlayer soundTwo = new SoundPlayer(@"Resources/punch.wav");
@@ -68,12 +70,18 @@ namespace GenericRPG {
     }
     private void btnSimpleAttack_Click(object sender, EventArgs e) {
       MakeSoundEffect();
+      _counter = 0;
+      tmrAnimation.Enabled = true;
+      picCharacter.BackgroundImage = GenericRPG.Properties.Resources.enemy;
+      tmrAnimation.Start();
+      
       float prevEnemyHealth = enemy.Health;
       character.SimpleAttack(enemy);
       float enemyDamage = (float)Math.Round(prevEnemyHealth - enemy.Health);
       lblEnemyDamage.Text = enemyDamage.ToString();
       lblEnemyDamage.Visible = true;
       tmrEnemyDamage.Enabled = true;
+      
       if (enemy.Health <= 0) {
         character.GainXP(enemy.XpDropped);
         lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!";
@@ -106,6 +114,7 @@ namespace GenericRPG {
         }
         else {
           UpdateStats();
+          //picCharacter.BackgroundImage = GenericRPG.Properties.Resources.character;
         }
       }
     }
@@ -145,5 +154,23 @@ namespace GenericRPG {
     public void MakeSoundEffect(){
         (listOfSounds[new Random().Next(0, listOfSounds.Length)]).Play();    
     }
+
+
+    private void tmrAnimation_Tick(object sender, EventArgs e)
+        {
+            _counter++;
+            if (_counter <= 4)
+            {
+                
+                picCharacter.BackgroundImage = GenericRPG.Properties.Resources.enemy;
+            }
+            else
+            {
+                picCharacter.BackgroundImage = GenericRPG.Properties.Resources.character;
+                tmrAnimation.Stop();
+            }
+            
+
+        }
   }
 }
