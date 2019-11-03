@@ -109,9 +109,9 @@
             this.Controls.Add(this.new_game_button);
             this.Controls.Add(this.enable_sound_label);
             this.Controls.Add(this.game_title);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FrmTitleMenu";
-            this.Text = "FrmTitleMenu";
+            this.Text = "Generic RPG Menu";
             this.ResumeLayout(false);
             this.PerformLayout();
 
