@@ -13,6 +13,7 @@ namespace GenericRPG {
     private Enemy enemy;
     private Random rand;
 
+    /// Counter for the animation timer
     public int _counter;
 
     /// Initalizes the different sounds
@@ -155,7 +156,7 @@ namespace GenericRPG {
         (listOfSounds[new Random().Next(0, listOfSounds.Length)]).Play();    
     }
 
-    /// Creates the appearance of the character punching when Simple Attack is pressed
+    /// Creates the appearance of the characters punching when Simple Attack is pressed
     private void tmrAnimation_Tick(object sender, EventArgs e)
     {
         _counter++;
