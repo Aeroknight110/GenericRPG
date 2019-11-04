@@ -126,6 +126,9 @@
     <Content Include="Resources\levelup.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\potion.bmp" />
+    <Content Include="Resources\potion.png" />
+    <Content Include="Resources\smallShooter.png" />
     <None Include="Resources\level2.png" />
     <None Include="Resources\quitgame.png" />
     <None Include="Resources\enemy.png" />

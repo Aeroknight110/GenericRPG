@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GameLibrary;
+using GenericRPG.Properties;
 
 namespace GenericRPG
 {
@@ -15,15 +16,10 @@ namespace GenericRPG
     {
         private Game game;
         private Character character;
+        
         public FrmInventory()
         {
             InitializeComponent();
-        }
-
-        private void invLoad(object sender, EventArgs e)
-        {
-            game = Game.GetGame();
-            character = game.Character;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
