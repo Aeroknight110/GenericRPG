@@ -60,6 +60,7 @@
       this.lblEnemyDamage = new System.Windows.Forms.Label();
       this.tmrPlayerDamage = new System.Windows.Forms.Timer(this.components);
       this.tmrEnemyDamage = new System.Windows.Forms.Timer(this.components);
+      this.tmrAnimation = new System.Windows.Forms.Timer(this.components);
       ((System.ComponentModel.ISupportInitialize)(this.picCharacter)).BeginInit();
       this.panel1.SuspendLayout();
       this.panel2.SuspendLayout();
@@ -481,6 +482,11 @@
       // 
       this.tmrEnemyDamage.Interval = 20;
       this.tmrEnemyDamage.Tick += new System.EventHandler(this.tmrEnemyDamage_Tick);
+
+      // tmrAnimation
+      // 
+      this.tmrAnimation.Interval = 20;
+      this.tmrAnimation.Tick += new System.EventHandler(this.tmrAnimation_Tick);
       // 
       // FrmArena
       // 
@@ -545,5 +551,6 @@
     private System.Windows.Forms.Label lblEnemyDamage;
     private System.Windows.Forms.Timer tmrPlayerDamage;
     private System.Windows.Forms.Timer tmrEnemyDamage;
-  }
+    private System.Windows.Forms.Timer tmrAnimation;
+    }
 }

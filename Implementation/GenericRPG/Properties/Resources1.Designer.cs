@@ -69,6 +69,27 @@ namespace GenericRPG.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+
+         internal static System.Drawing.Bitmap characterStanding {
+            get{
+                object obj = ResourceManager.GetObject("characterStanding", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        internal static System.Drawing.Bitmap enemyRed {
+            get {
+                object obj = ResourceManager.GetObject("enemyRed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        internal static System.Drawing.Bitmap enemyRedStanding {
+            get {
+                object obj = ResourceManager.GetObject("enemyRedStanding", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.

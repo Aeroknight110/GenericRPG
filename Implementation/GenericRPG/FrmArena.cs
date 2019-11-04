@@ -2,6 +2,7 @@
 using GenericRPG.Properties;
 using System;
 using System.Drawing;
+using System.Media;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -12,9 +13,21 @@ namespace GenericRPG {
     private Enemy enemy;
     private Random rand;
 
+    /// Counter for the animation timer
+    public int _counter;
+
+    /// Initalizes the different sounds
+    static SoundPlayer soundOne = new SoundPlayer(@"Resources/attack.wav");
+    static SoundPlayer soundTwo = new SoundPlayer(@"Resources/punch.wav");
+    static SoundPlayer soundThree = new SoundPlayer(@"Resources/slap.wav");
+    static SoundPlayer soundFour = new SoundPlayer(@"Resources/punches.wav");
+    /// Creates an array with the different sound options
+    SoundPlayer[] listOfSounds = {soundOne, soundTwo, soundThree, soundFour};
+
     public FrmArena() {
       InitializeComponent();
-    }
+      
+        }
     private void btnEndFight_Click(object sender, EventArgs e) {
       EndFight();
     }
@@ -27,13 +40,14 @@ namespace GenericRPG {
 
       game = Game.GetGame();
       character = game.Character;
-      enemy = new Enemy(rand.Next(character.Level + 1), Resources.enemy);
+      enemy = new Enemy(rand.Next(character.Level + 1), Resources.enemyRedStanding);
 
       // stats
       UpdateStats();
 
       // pictures
-      picCharacter.BackgroundImage = character.Pic.BackgroundImage;
+      picCharacter.BackgroundImage = GenericRPG.Properties.Resources.characterStanding;
+      //picCharacter.BackgroundImage = character.Pic.BackgroundImage;
       picEnemy.BackgroundImage = enemy.Img;
 
       // names
@@ -58,12 +72,18 @@ namespace GenericRPG {
       lblEnemyHealth.Text = Math.Round(enemy.Health).ToString();
     }
     private void btnSimpleAttack_Click(object sender, EventArgs e) {
+      MakeSoundEffect();
+      _counter = 0;
+      tmrAnimation.Enabled = true;
+      tmrAnimation.Start();
+      
       float prevEnemyHealth = enemy.Health;
       character.SimpleAttack(enemy);
       float enemyDamage = (float)Math.Round(prevEnemyHealth - enemy.Health);
       lblEnemyDamage.Text = enemyDamage.ToString();
       lblEnemyDamage.Visible = true;
       tmrEnemyDamage.Enabled = true;
+      
       if (enemy.Health <= 0) {
         character.GainXP(enemy.XpDropped);
         lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!";
@@ -129,6 +149,28 @@ namespace GenericRPG {
         tmrEnemyDamage.Enabled = false;
         lblEnemyDamage.Top = 52;
       }
+    }
+
+    /// Randomly chooses a sound effect from the array of sounds each time the simple attack button is pressed
+    public void MakeSoundEffect(){
+        (listOfSounds[new Random().Next(0, listOfSounds.Length)]).Play();    
+    }
+
+    /// Creates the appearance of the characters punching when Simple Attack is pressed
+    private void tmrAnimation_Tick(object sender, EventArgs e)
+    {
+        _counter++;
+        if (_counter <= 4)
+        {   
+            picCharacter.BackgroundImage = GenericRPG.Properties.Resources.character;
+            picEnemy.BackgroundImage = GenericRPG.Properties.Resources.enemyRed;
+        }
+        else
+        {
+            picCharacter.BackgroundImage = GenericRPG.Properties.Resources.characterStanding;
+            picEnemy.BackgroundImage = GenericRPG.Properties.Resources.enemyRedStanding;
+            tmrAnimation.Stop();
+        }
     }
   }
 }
