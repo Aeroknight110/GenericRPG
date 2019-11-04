@@ -75,7 +75,7 @@ namespace GameLibrary {
       Mana = MaxMana;
     }
     public void SimpleAttack(Mortal receiver) {
-      float baseDamage = Math.Abs((Str * 1.2f - receiver.Def) * (float)weapon.damMod);
+      float baseDamage = Math.Abs((Str * 1.2f - receiver.Def));
       float randMax = 1 + SIMPLEATTACK_RANDOM_AMT;
       float randMin = 1 - SIMPLEATTACK_RANDOM_AMT;
       float randMult = (float)(rand.NextDouble() * (randMax - randMin)) + randMin;
