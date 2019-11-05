@@ -34,7 +34,7 @@ namespace GameLibrary {
 
     private Random rand;
 
-    public void Roll( int level) {
+    public void MRoll( int level) {
       Name = "Roll";
       ResetStats();
       SetLevel(level);

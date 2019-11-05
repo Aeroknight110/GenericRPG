@@ -34,7 +34,7 @@ namespace GameLibrary {
 
     private Random rand;
 
-    public void Rush( int level) {
+    public void MRush(int level) {
       Name = "Rush";
       ResetStats();
       SetLevel(level);
