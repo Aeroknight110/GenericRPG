@@ -19,7 +19,10 @@ namespace GenericRPG
         
         public FrmInventory()
         {
+            game = Game.GetGame();
+            character = game.Character;
             InitializeComponent();
+            lblWeapon.Text = character.weapon.damMod.ToString();
         }
 
         private void btnClose_Click(object sender, EventArgs e)

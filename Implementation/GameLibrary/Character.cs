@@ -26,13 +26,15 @@ namespace GameLibrary {
     public float XP { get; private set; }
     public bool ShouldLevelUp { get; private set; }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="pb"></param>
-    /// <param name="pos"></param>
-    /// <param name="map"></param>
-    public Character(PictureBox pb, Position pos, Map map) : base("Player 1", 1) {
+    public Weapon weapon = new Weapon(4);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pb"></param>
+        /// <param name="pos"></param>
+        /// <param name="map"></param>
+        public Character(PictureBox pb, Position pos, Map map) : base("Player 1", 1) {
       Pic = pb;
       this.pos = pos;
       this.map = map;
@@ -48,10 +50,11 @@ namespace GameLibrary {
       }
     }
 
-    public override void LevelUp() {
-      base.LevelUp();
-      ShouldLevelUp = false;
-    }
+   public override void LevelUp()
+   {
+       base.LevelUp();
+       ShouldLevelUp = false;
+   }
 
     public void BackToStart() {
       pos.row = map.CharacterStartRow;

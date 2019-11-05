@@ -76,9 +76,9 @@ namespace GenericRPG {
       _counter = 0;
       tmrAnimation.Enabled = true;
       tmrAnimation.Start();
-      
+     
       float prevEnemyHealth = enemy.Health;
-      character.SimpleAttack(enemy);
+      character.SimpleAttack(enemy, character.weapon);
       float enemyDamage = (float)Math.Round(prevEnemyHealth - enemy.Health);
       lblEnemyDamage.Text = enemyDamage.ToString();
       lblEnemyDamage.Visible = true;
