@@ -34,7 +34,7 @@ namespace GameLibrary {
 
     private Random rand;
 
-    public Mortal(string name, int level) {
+    public void Mortal(string name, int level) {
       Name = name;
       ResetStats();
       SetLevel(level);
@@ -85,16 +85,4 @@ namespace GameLibrary {
     }
   }
 }
-© 2019 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
 

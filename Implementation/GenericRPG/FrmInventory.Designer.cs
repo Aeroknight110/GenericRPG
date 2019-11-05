@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.picInv0 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.picWeapon = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.lblWeapon = new System.Windows.Forms.Label();
             this.lblHeadgear = new System.Windows.Forms.Label();
-            this.picWeapon = new System.Windows.Forms.PictureBox();
-            this.picInv1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picInv0)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picWeapon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picInv1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -56,7 +56,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.Controls.Add(this.picInv1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.picInv0, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 157);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
@@ -72,6 +72,14 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(460, 292);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // picInv0
+            // 
+            this.picInv0.Location = new System.Drawing.Point(5, 5);
+            this.picInv0.Name = "picInv0";
+            this.picInv0.Size = new System.Drawing.Size(83, 50);
+            this.picInv0.TabIndex = 0;
+            this.picInv0.TabStop = false;
             // 
             // tableLayoutPanel2
             // 
@@ -89,6 +97,14 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(184, 61);
             this.tableLayoutPanel2.TabIndex = 1;
+            // 
+            // picWeapon
+            // 
+            this.picWeapon.Location = new System.Drawing.Point(5, 5);
+            this.picWeapon.Name = "picWeapon";
+            this.picWeapon.Size = new System.Drawing.Size(83, 50);
+            this.picWeapon.TabIndex = 0;
+            this.picWeapon.TabStop = false;
             // 
             // btnClose
             // 
@@ -118,22 +134,6 @@
             this.lblHeadgear.TabIndex = 4;
             this.lblHeadgear.Text = "Headgear";
             // 
-            // picWeapon
-            // 
-            this.picWeapon.Location = new System.Drawing.Point(5, 5);
-            this.picWeapon.Name = "picWeapon";
-            this.picWeapon.Size = new System.Drawing.Size(83, 50);
-            this.picWeapon.TabIndex = 0;
-            this.picWeapon.TabStop = false;
-            // 
-            // picInv1
-            // 
-            this.picInv1.Location = new System.Drawing.Point(5, 5);
-            this.picInv1.Name = "picInv1";
-            this.picInv1.Size = new System.Drawing.Size(83, 50);
-            this.picInv1.TabIndex = 0;
-            this.picInv1.TabStop = false;
-            // 
             // FrmInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -150,9 +150,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inventory";
             this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picInv0)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picWeapon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picInv1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,6 +166,6 @@
         private System.Windows.Forms.Label lblWeapon;
         private System.Windows.Forms.Label lblHeadgear;
         private System.Windows.Forms.PictureBox picWeapon;
-        private System.Windows.Forms.PictureBox picInv1;
+        private System.Windows.Forms.PictureBox picInv0;
     }
 }
