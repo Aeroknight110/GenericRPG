@@ -34,8 +34,8 @@ namespace GameLibrary {
 
     private Random rand;
 
-    public void Mortal(string name, int level) {
-      Name = name;
+    public void Rush( int level) {
+      Name = "Rush";
       ResetStats();
       SetLevel(level);
       rand = new Random();
