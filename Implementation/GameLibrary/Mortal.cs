@@ -30,6 +30,7 @@ namespace GameLibrary {
     public float Def { get; protected set; }
     public float Luck { get; protected set; }
     public float Speed { get; protected set; }
+
     private Random rand;
 
     public Mortal(string name, int level) {
@@ -74,11 +75,25 @@ namespace GameLibrary {
       Health = MaxHealth;
       Mana = MaxMana;
     }
-    public void SimpleAttack(Mortal receiver) {
+    public void SimpleAttack(Mortal receiver, Weapon weapon = null) {
       float baseDamage = Math.Abs((Str * 1.2f - receiver.Def));
       float randMax = 1 + SIMPLEATTACK_RANDOM_AMT;
       float randMin = 1 - SIMPLEATTACK_RANDOM_AMT;
-      float randMult = (float)(rand.NextDouble() * (randMax - randMin)) + randMin;
+      float randMult;
+      if (weapon != null)
+            if (weapon.wID == 3)
+            {
+                randMult = (float)((rand.NextDouble() * (randMax - randMin)) + randMin * (float)weapon.damMod);
+                double chance = rand.NextDouble();
+                if(chance > .15)
+                    randMult *= (float)2.0;
+            }
+            else
+                randMult = (float)((rand.NextDouble() * (randMax - randMin)) + randMin * (float)weapon.damMod);
+      else
+      {
+          randMult = (float)((rand.NextDouble() * (randMax - randMin)) + randMin);
+      }
       receiver.Health -= (baseDamage * randMult);
     }
   }

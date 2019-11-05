@@ -119,11 +119,10 @@
             // lblWeapon
             // 
             this.lblWeapon.AutoSize = true;
-            this.lblWeapon.Location = new System.Drawing.Point(12, 74);
+            this.lblWeapon.Location = new System.Drawing.Point(11, 74);
             this.lblWeapon.Name = "lblWeapon";
-            this.lblWeapon.Size = new System.Drawing.Size(48, 13);
+            this.lblWeapon.Size = new System.Drawing.Size(0, 13);
             this.lblWeapon.TabIndex = 3;
-            this.lblWeapon.Text = "Weapon";
             // 
             // lblHeadgear
             // 

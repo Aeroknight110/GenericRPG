@@ -15,7 +15,7 @@ namespace GameLibrary
         {
             {1, 1.0},
             {3, .6},
-            {4, 5.0}
+            {4, 500.0}
         };
 
         public Weapon(int id) : base(id)
