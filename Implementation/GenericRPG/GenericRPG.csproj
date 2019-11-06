@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GameLibrary">
+      <HintPath>..\GameLibrary\bin\Debug\GameLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,12 +48,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmClass.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmClass.Designer.cs">
-      <DependentUpon>FrmClass.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmInventory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,19 +78,10 @@
     <Compile Include="FrmMap.Designer.cs">
       <DependentUpon>FrmMap.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmTitleMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmTitleMenu.Designer.cs">
-      <DependentUpon>FrmTitleMenu.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmArena.resx">
       <DependentUpon>FrmArena.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmClass.resx">
-      <DependentUpon>FrmClass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGameOver.resx">
       <DependentUpon>FrmGameOver.cs</DependentUpon>
@@ -107,30 +95,16 @@
     <EmbeddedResource Include="FrmMap.resx">
       <DependentUpon>FrmMap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmTitleMenu.resx">
-      <DependentUpon>FrmTitleMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="obj\Debug\GenericRPG.FrmArena.resources" />
-    <EmbeddedResource Include="obj\Debug\GenericRPG.FrmGameOver.resources" />
-    <EmbeddedResource Include="obj\Debug\GenericRPG.FrmInventory.resources" />
-    <EmbeddedResource Include="obj\Debug\GenericRPG.FrmLevelUp.resources" />
-    <EmbeddedResource Include="obj\Debug\GenericRPG.FrmMap.resources" />
-    <EmbeddedResource Include="obj\Debug\GenericRPG.FrmTitleMenu.resources" />
-    <EmbeddedResource Include="obj\Debug\GenericRPG.Properties.Resources.resources" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
-    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="obj\Debug\GenericRPG.csproj.GenerateResource.cache" />
-    <None Include="obj\Debug\GenericRPG.csprojAssemblyReference.cache" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Resources.Designer.cs">
+    <Compile Include="Properties\Resources1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
@@ -149,34 +123,9 @@
     <None Include="Resources\wall.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="obj\Debug\GenericRPG.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Debug\TempPE\Properties.Resources1.Designer.cs.dll" />
-    <None Include="Resources\beamKnife.png" />
-    <None Include="Resources\beamAxe.png" />
-    <Content Include="Resources\characterStanding.png" />
-    <Content Include="Resources\Edit\character-levelup-animation.fw.png" />
-    <Content Include="Resources\Edit\gameover.fw.png" />
-    <Content Include="Resources\Edit\vortex.fw.png" />
-    <Content Include="Resources\enemyRed.png" />
-    <Content Include="Resources\enemyRedStanding.png" />
     <Content Include="Resources\levelup.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Resources\potion.bmp" />
-    <Content Include="Resources\potion.png" />
-    <Content Include="Resources\attack.wav">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\punch.wav">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\punches.wav">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\slap.wav">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\smallShooter.png" />
     <None Include="Resources\level2.png" />
     <None Include="Resources\quitgame.png" />
     <None Include="Resources\enemy.png" />
@@ -188,14 +137,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="bin\Debug\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\GameLibrary\GameLibrary.csproj">
-      <Project>{0b5f0b18-18d0-43a4-8705-c25e033ec0bf}</Project>
-      <Name>GameLibrary</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
