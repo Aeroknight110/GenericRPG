@@ -19,7 +19,8 @@ namespace GameLibrary {
 
     public Character Character { get; private set; }
     public GameState State { get; private set; }
-
+    public PartyRL Roll { get; private set; }
+    public PartyRU Rush {get; private set;}
     private Game() {
       State = GameState.LOADING;
     }
@@ -38,5 +39,12 @@ namespace GameLibrary {
       Character = character;
       character.weapon = new Weapon(1);
     }
+        public void SetPartyRL(PartyRL character)
+        {
+            Roll = character;
+        }
+    public void SetPartyRu(PartyRU character) {
+      Rush = character;
+        }
   }
 }

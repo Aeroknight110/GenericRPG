@@ -1,4 +1,6 @@
 using System;
+using GameLibrary;
+
 
 namespace GameLibrary {
   public class Roll {

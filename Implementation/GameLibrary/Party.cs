@@ -1,7 +1,10 @@
 using GameLibrary;
 using System.Windows.Forms;
 public class PartyRL : Roll {
+
     public PictureBox Pic { get; private set; }
+
+    //public PictureBox Pic { get; private set; }
     public float XP { get; private set; }
     public bool ShouldLevelUpRL { get; private set; }
     public void GainXP(float amount) {
