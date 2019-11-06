@@ -6,14 +6,11 @@ namespace GameLibrary {
   public class Enemy : Mortal {
     private const float MAX_XP_DROP = 35;
     private const float MIN_XP_DROP = 15;
-    private const float MAX_GD_DROP = 20;
-    private const float MIN_GD_DROP = 10;
     private const float WEAKEN_MIN = 1.25f;
     private const float WEAKEN_MAX = 1.85f;
 
     public Bitmap Img { get; private set; }
     public float XpDropped { get; private set; }
-    public float GdDropped { get; private set; }
 
     private static readonly Random rand = new Random();
     private static readonly List<string> names = new List<string>() {
@@ -30,7 +27,6 @@ namespace GameLibrary {
       Def /= (float)rand.NextDouble() * (WEAKEN_MAX - WEAKEN_MIN) + WEAKEN_MIN;
 
       XpDropped = (float)rand.NextDouble() * (MAX_XP_DROP - MIN_XP_DROP) + MIN_XP_DROP;
-      GdDropped = (float)rand.NextDouble() * (MAX_GD_DROP - MIN_GD_DROP) + MIN_GD_DROP;
     }
 
     public static string RandName() {

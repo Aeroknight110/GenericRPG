@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GameLibrary;
+using GenericRPG.Properties;
 
 namespace GenericRPG
 {
@@ -15,17 +17,26 @@ namespace GenericRPG
     {
         private Game game;
         private Character character;
-        public FrmInventory()
+        private Weapon weapon;
+        public Dictionary<int, Bitmap> imgList = new Dictionary<int, Bitmap>()
         {
-            InitializeComponent();
-        }
+            {1, Resources.smallShooter},
+            {2, Resources.potion},
+            {3, Resources.beamKnife},
+            {4, Resources.beamAxe}
+        };
 
-        private void invLoad(object sender, EventArgs e)
+        public FrmInventory()
         {
             game = Game.GetGame();
             character = game.Character;
-        }
-
+            weapon = character.weapon;
+            InitializeComponent();
+            lblWeapon.Text = weapon.name.ToString();
+            picWeapon.BackgroundImageLayout = ImageLayout.Stretch;
+            picWeapon.BackgroundImage = imgList[weapon.wID];
+            weaponTip.SetToolTip(picWeapon, weapon.descList[weapon.wID]);
+        }   
         private void btnClose_Click(object sender, EventArgs e)
         {
             closeInv();
@@ -34,6 +45,11 @@ namespace GenericRPG
         {
             Game.GetGame().ChangeState(GameState.ON_MAP);
             Close();
+        }
+
+        private void FrmInventory_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

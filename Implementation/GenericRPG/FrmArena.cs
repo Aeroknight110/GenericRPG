@@ -2,6 +2,7 @@
 using GenericRPG.Properties;
 using System;
 using System.Drawing;
+using System.Media;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -12,9 +13,21 @@ namespace GenericRPG {
     private Enemy enemy;
     private Random rand;
 
+    /// Counter for the animation timer
+    public int _counter;
+
+    /// Initalizes the different sounds
+    static SoundPlayer soundOne = new SoundPlayer(@"Resources/attack.wav");
+    static SoundPlayer soundTwo = new SoundPlayer(@"Resources/punch.wav");
+    static SoundPlayer soundThree = new SoundPlayer(@"Resources/slap.wav");
+    static SoundPlayer soundFour = new SoundPlayer(@"Resources/punches.wav");
+    /// Creates an array with the different sound options
+    SoundPlayer[] listOfSounds = {soundOne, soundTwo, soundThree, soundFour};
+
     public FrmArena() {
       InitializeComponent();
-    }
+      
+        }
     private void btnEndFight_Click(object sender, EventArgs e) {
       EndFight();
     }
@@ -27,13 +40,13 @@ namespace GenericRPG {
 
       game = Game.GetGame();
       character = game.Character;
-      enemy = new Enemy(rand.Next(character.Level + 1), Resources.enemy);
-
+      enemy = new Enemy(rand.Next(character.Level + 1), Resources.enemyRedStanding);
       // stats
       UpdateStats();
 
       // pictures
-      picCharacter.BackgroundImage = character.Pic.BackgroundImage;
+      picCharacter.BackgroundImage = GenericRPG.Properties.Resources.characterStanding;
+      //picCharacter.BackgroundImage = character.Pic.BackgroundImage;
       picEnemy.BackgroundImage = enemy.Img;
 
       // names
@@ -47,8 +60,6 @@ namespace GenericRPG {
       lblPlayerDef.Text = Math.Round(character.Def).ToString();
       lblPlayerMana.Text = Math.Round(character.Mana).ToString();
       lblPlayerXp.Text = Math.Round(character.XP).ToString();
-      //show the gold
-      lblPlayerGd.Text = Math.Round(character.Gd).ToString();  
 
       lblEnemyLevel.Text = enemy.Level.ToString();
       lblEnemyHealth.Text = Math.Round(enemy.Health).ToString();
@@ -60,17 +71,21 @@ namespace GenericRPG {
       lblEnemyHealth.Text = Math.Round(enemy.Health).ToString();
     }
     private void btnSimpleAttack_Click(object sender, EventArgs e) {
+      MakeSoundEffect();
+      _counter = 0;
+      tmrAnimation.Enabled = true;
+      tmrAnimation.Start();
+     
       float prevEnemyHealth = enemy.Health;
-      character.SimpleAttack(enemy);
+      character.SimpleAttack(enemy, character.weapon);
       float enemyDamage = (float)Math.Round(prevEnemyHealth - enemy.Health);
       lblEnemyDamage.Text = enemyDamage.ToString();
       lblEnemyDamage.Visible = true;
       tmrEnemyDamage.Enabled = true;
+      
       if (enemy.Health <= 0) {
-        // #item drop + gold 
         character.GainXP(enemy.XpDropped);
-        character.GainGd(enemy.GdDropped);
-        lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!"+Math.Round(enemy.GdDropped)+" Gold!";
+        lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!";
         lblEndFightMessage.Visible = true;
         Refresh();
         Thread.Sleep(1200);
@@ -78,7 +93,18 @@ namespace GenericRPG {
         if (character.ShouldLevelUp) {
           FrmLevelUp frmLevelUp = new FrmLevelUp();
           frmLevelUp.Show();
-        }
+                    if (character.Level == 2)
+                    {
+
+                        FrmClass f1 = new FrmClass();
+                        f1.Show();
+
+
+
+
+                    }
+                    
+                }
       }
       else {
         float prevPlayerHealth = character.Health;
@@ -103,7 +129,128 @@ namespace GenericRPG {
         }
       }
     }
-    private void btnRun_Click(object sender, EventArgs e) {
+
+        private void btnMagicAttack_Click(object sender, EventArgs e)
+        {
+            if (Game.GetGame().Character.Mana >= 5)
+            {
+                //Form2 f2 = new Form2();
+                //f2.Show();
+                float prevEnemyHealth = enemy.Health;
+                character.MagicAttack(enemy);
+
+                float enemyDamage = (float)Math.Round(prevEnemyHealth - enemy.Health);
+                lblEnemyDamage.Text = enemyDamage.ToString();
+                lblEnemyDamage.Visible = true;
+                tmrEnemyDamage.Enabled = true;
+                if (enemy.Health <= 0)
+                {
+                    character.GainXP(enemy.XpDropped);
+                    lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!";
+                    lblEndFightMessage.Visible = true;
+                    Refresh();
+                    Thread.Sleep(1200);
+                    EndFight();
+                    if (character.ShouldLevelUp)
+                    {
+                        FrmLevelUp frmLevelUp = new FrmLevelUp();
+                        frmLevelUp.Show();
+                    }
+                }
+                else
+                {
+                    float prevPlayerHealth = character.Health;
+                    enemy.SimpleAttack(character);
+                    float playerDamage = (float)Math.Round(prevPlayerHealth - character.Health);
+                    lblPlayerDamage.Text = playerDamage.ToString();
+                    lblPlayerDamage.Visible = true;
+                    tmrPlayerDamage.Enabled = true;
+                    if (character.Health <= 0)
+                    {
+                        UpdateStats();
+                        game.ChangeState(GameState.DEAD);
+                        lblEndFightMessage.Text = "You Were Defeated!";
+                        lblEndFightMessage.Visible = true;
+                        Refresh();
+                        Thread.Sleep(1200);
+                        EndFight();
+                        FrmGameOver frmGameOver = new FrmGameOver();
+                        frmGameOver.Show();
+                    }
+                    else
+                    {
+                        UpdateStats();
+                    }
+                }
+            }
+            else
+            {
+                float prevEnemyHealth = enemy.Health;
+                character.SimpleAttack(enemy);
+                float enemyDamage = (float)Math.Round(prevEnemyHealth - enemy.Health);
+                lblEnemyDamage.Text = enemyDamage.ToString();
+                lblEnemyDamage.Visible = true;
+                tmrEnemyDamage.Enabled = true;
+                label10.Show();
+                timer1.Start();
+                if (enemy.Health <= 0)
+                {
+                    character.GainXP(enemy.XpDropped);
+                    lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!";
+                    lblEndFightMessage.Visible = true;
+                    Refresh();
+                    Thread.Sleep(1200);
+                    EndFight();
+                    if (character.ShouldLevelUp)
+                    {
+                        FrmLevelUp frmLevelUp = new FrmLevelUp();
+                        frmLevelUp.Show();
+                        if (character.Level == 2)
+                        {
+                            Console.WriteLine("SOMETHING");
+                            FrmClass f1 = new FrmClass();
+                            f1.Show();
+
+
+                            //Form f2 = new Form2();
+                            //f2.Show();
+
+                        }
+                    }
+                }
+                else
+                {
+                    float prevPlayerHealth = character.Health;
+                    enemy.SimpleAttack(character);
+                    float playerDamage = (float)Math.Round(prevPlayerHealth - character.Health);
+                    lblPlayerDamage.Text = playerDamage.ToString();
+                    lblPlayerDamage.Visible = true;
+                    tmrPlayerDamage.Enabled = true;
+                    if (character.Health <= 0)
+                    {
+                        UpdateStats();
+                        game.ChangeState(GameState.DEAD);
+                        lblEndFightMessage.Text = "You Were Defeated!";
+                        lblEndFightMessage.Visible = true;
+                        Refresh();
+                        Thread.Sleep(1200);
+                        EndFight();
+                        FrmGameOver frmGameOver = new FrmGameOver();
+                        frmGameOver.Show();
+                    }
+                    else
+                    {
+                        UpdateStats();
+                    }
+                }
+            }
+
+
+        }
+
+
+
+        private void btnRun_Click(object sender, EventArgs e) {
       if (rand.NextDouble() < 0.25) {
         lblEndFightMessage.Text = "You Ran Like a Coward!";
         lblEndFightMessage.Visible = true;
@@ -135,5 +282,39 @@ namespace GenericRPG {
       }
     }
 
-}
+    /// Randomly chooses a sound effect from the array of sounds each time the simple attack button is pressed
+    public void MakeSoundEffect(){
+        (listOfSounds[new Random().Next(0, listOfSounds.Length)]).Play();    
+    }
+
+    /// Creates the appearance of the characters punching when Simple Attack is pressed
+    private void tmrAnimation_Tick(object sender, EventArgs e)
+    {
+        _counter++;
+        if (_counter <= 4)
+        {   
+            picCharacter.BackgroundImage = GenericRPG.Properties.Resources.character;
+            picEnemy.BackgroundImage = GenericRPG.Properties.Resources.enemyRed;
+        }
+        else
+        {
+            picCharacter.BackgroundImage = GenericRPG.Properties.Resources.characterStanding;
+            picEnemy.BackgroundImage = GenericRPG.Properties.Resources.enemyRedStanding;
+            tmrAnimation.Stop();
+        }
+    }
+
+
+
+        private void tmrNoMana_Tick(object sender, EventArgs e)
+        {
+
+            label10.Top -= 2;
+            if (label10.Top < 200)
+            {
+                label10.Visible = false;
+                label10.Top = 255;
+            }
+        }
+    }
 }
