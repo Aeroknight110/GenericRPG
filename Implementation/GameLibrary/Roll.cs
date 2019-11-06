@@ -3,7 +3,7 @@ using GameLibrary;
 
 
 namespace GameLibrary {
-  public class Roll :Enemy {
+  public class Roll {
     //Roll's stats
     #region Constants
     private const float INIT_HEALTH = 50;
