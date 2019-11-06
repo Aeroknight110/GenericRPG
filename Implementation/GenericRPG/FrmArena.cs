@@ -10,6 +10,8 @@ namespace GenericRPG {
   public partial class FrmArena : Form {
     private Game game;
     private Character character;
+    private PartyRU rush;
+    private PartyRL roll;
     private Enemy enemy;
     private Random rand;
 
@@ -40,6 +42,8 @@ namespace GenericRPG {
 
       game = Game.GetGame();
       character = game.Character;
+      roll = game.Roll;
+      rush = game.Rush;
       enemy = new Enemy(rand.Next(character.Level + 1), Resources.enemyRedStanding);
       // stats
       UpdateStats();
@@ -247,16 +251,67 @@ namespace GenericRPG {
                     else
                     {
                         UpdateStats();
+                        tmrAnimation.Start();
+                        float prevrEnemyHealth = enemy.Health;
+                        Roll.SimpleAttack(enemy);
+                        float enemyrDamage = (float)Math.Round(prevrEnemyHealth - enemy.Health);
+                        lblEnemyDamage.Text = enemyDamage.ToString();
+                        lblEnemyDamage.Visible = true;
+                        tmrEnemyDamage.Enabled = true;
+                        if (enemy.Health <= 0)
+                        {
+                            float X = enemy.XpDropped;
+                            character.GainXP(X);
+                            Roll.GainXP(X);
+                            Rush.GainXP(X);
+                            lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!";
+                            lblEndFightMessage.Visible = true;
+                            Refresh();
+                            Thread.Sleep(1200);
+                            EndFight();
+                            if (character.ShouldLevelUp)
+                            {
+                                FrmLevelUp frmLevelUp = new FrmLevelUp();
+                                frmLevelUp.Show();
+                            }
+                        }
+                        else
+                        {
+                            UpdateStats();
+                            tmrAnimation.Start();
+                            float prevcEnemyHealth = enemy.Health;
+                            Rush.SimpleAttack(enemy);
+                            float enemycDamage = (float)Math.Round(prevcEnemyHealth - enemy.Health);
+                            lblEnemyDamage.Text = enemyDamage.ToString();
+                            lblEnemyDamage.Visible = true;
+                            tmrEnemyDamage.Enabled = true;
+                            if (enemy.Health <= 0)
+                            {
+                                float X = enemy.XpDropped;
+                                character.GainXP(X);
+                                Roll.GainXP(X);
+                                Rush.GainXP(X);
+                                lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!";
+                                lblEndFightMessage.Visible = true;
+                                Refresh();
+                                Thread.Sleep(1200);
+                                EndFight();
+                                if (character.ShouldLevelUp)
+                                {
+                                    FrmLevelUp frmLevelUp = new FrmLevelUp();
+                                    frmLevelUp.Show();
+                                }
+                            }
+                        }
                     }
                 }
+
             }
-
-
         }
 
 
 
-        private void btnRun_Click(object sender, EventArgs e) {
+    private void btnRun_Click(object sender, EventArgs e) {
       if (rand.NextDouble() < 0.25) {
         lblEndFightMessage.Text = "You Ran Like a Coward!";
         lblEndFightMessage.Visible = true;
