@@ -33,7 +33,7 @@ namespace GameLibrary {
     public float Def { get; protected set; }
     public float Luck { get; protected set; }
     public float Speed { get; protected set; }
-
+    public float XP { get; private set; }
     private Random rand;
 
     public void MRoll( int level) {
@@ -85,6 +85,13 @@ namespace GameLibrary {
       float randMult = (float)(rand.NextDouble() * (randMax - randMin)) + randMin;
       //receiver.Health -= (baseDamage * randMult);
     }
-  }
+    public void GainXP(float amount) {
+        XP += amount;
+        // every 100 experience points you gain a level
+         if ((int)XP / 100 >= Level) {
+        LevelUp();
+        }
+      }   
+      }
 }
 

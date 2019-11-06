@@ -12,8 +12,6 @@ namespace GenericRPG
     {
         private Game game;
         private Character character;
-        private PartyRU rush;
-        private PartyRL roll;
         private Enemy enemy;
         private Random rand;
 
@@ -48,8 +46,8 @@ namespace GenericRPG
 
             game = Game.GetGame();
             character = game.Character;
-            roll = game.Roll;
-            rush = game.Rush;
+            Roll roll = game.Roll;
+            Rush rush = game.Rush;
             enemy = new Enemy(rand.Next(character.Level + 1), Resources.enemyRedStanding);
             // stats
             UpdateStats();
