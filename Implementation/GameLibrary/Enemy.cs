@@ -6,11 +6,14 @@ namespace GameLibrary {
   public class Enemy : Mortal {
     private const float MAX_XP_DROP = 35;
     private const float MIN_XP_DROP = 15;
+    private const float MIN_GB_DROP = 10;
+    private const float MAX_GB_DROP = 30;
     private const float WEAKEN_MIN = 1.25f;
     private const float WEAKEN_MAX = 1.85f;
 
     public Bitmap Img { get; private set; }
     public float XpDropped { get; private set; }
+    public float GbDropped { get; private set; }
 
     private static readonly Random rand = new Random();
     private static readonly List<string> names = new List<string>() {
@@ -25,8 +28,10 @@ namespace GameLibrary {
       Mana /= (float)rand.NextDouble() * (WEAKEN_MAX - WEAKEN_MIN) + WEAKEN_MIN;
       Str /= (float)rand.NextDouble() * (WEAKEN_MAX - WEAKEN_MIN) + WEAKEN_MIN;
       Def /= (float)rand.NextDouble() * (WEAKEN_MAX - WEAKEN_MIN) + WEAKEN_MIN;
+      
 
       XpDropped = (float)rand.NextDouble() * (MAX_XP_DROP - MIN_XP_DROP) + MIN_XP_DROP;
+      GbDropped = (float)rand.NextDouble() * (MAX_GB_DROP - MIN_GB_DROP) + MIN_GB_DROP;
     }
 
     public static string RandName() {

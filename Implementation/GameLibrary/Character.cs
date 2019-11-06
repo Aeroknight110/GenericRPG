@@ -32,6 +32,8 @@ namespace GameLibrary {
     private Position pos;
     private Map map;
     public float XP { get; private set; }
+    //add gold drop
+    public float Gb {get; private set; }
     public bool ShouldLevelUp { get; private set; }
         public classSystem ClassType { get; set; }
     public Weapon weapon;
@@ -57,6 +59,12 @@ namespace GameLibrary {
       if ((int)XP / 100 >= Level) {
         ShouldLevelUp = true;
       }
+    }
+
+    public void GainGb(float amount){
+        Gb += amount;
+
+
     }
 
    public override void LevelUp()

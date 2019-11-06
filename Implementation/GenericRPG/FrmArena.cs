@@ -77,6 +77,7 @@ namespace GenericRPG
             lblPlayerDef.Text = Math.Round(character.Def).ToString();
             lblPlayerMana.Text = Math.Round(character.Mana).ToString();
             lblPlayerXp.Text = Math.Round(character.XP).ToString();
+            lblPlayerGb.Text = Math.Round(character.Gb).ToString();
 
             lblEnemyLevel.Text = enemy.Level.ToString();
             lblEnemyHealth.Text = Math.Round(enemy.Health).ToString();
@@ -104,7 +105,8 @@ namespace GenericRPG
             if (enemy.Health <= 0)
             {
                 character.GainXP(enemy.XpDropped);
-                lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!";
+                character.GainGb(enemy.GbDropped);
+                lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!"+Math.Round(enemy.GbDropped)+ "gb!";
                 lblEndFightMessage.Visible = true;
                 Refresh();
                 Thread.Sleep(1200);
@@ -169,7 +171,8 @@ namespace GenericRPG
                 if (enemy.Health <= 0)
                 {
                     character.GainXP(enemy.XpDropped);
-                    lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!";
+                    character.GainGb(enemy.GbDropped);
+                    lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!" + Math.Round(enemy.GbDropped) + "gb!";
                     lblEndFightMessage.Visible = true;
                     Refresh();
                     Thread.Sleep(1200);
@@ -219,7 +222,8 @@ namespace GenericRPG
                 if (enemy.Health <= 0)
                 {
                     character.GainXP(enemy.XpDropped);
-                    lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!";
+                    character.GainGb(enemy.GbDropped);
+                    lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!" + Math.Round(enemy.GbDropped) + "gb!";
                     lblEndFightMessage.Visible = true;
                     Refresh();
                     Thread.Sleep(1200);
@@ -398,5 +402,6 @@ namespace GenericRPG
                 label10.Top = 255;
             }
         }
+
     }
 }
