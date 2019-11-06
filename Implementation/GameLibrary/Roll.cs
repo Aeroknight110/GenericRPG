@@ -1,4 +1,6 @@
 using System;
+using GameLibrary;
+
 
 namespace GameLibrary {
   public class Roll {
@@ -34,8 +36,8 @@ namespace GameLibrary {
 
     private Random rand;
 
-    public Mortal(string name, int level) {
-      Name = name;
+    public void MRoll( int level) {
+      Name = "Roll";
       ResetStats();
       SetLevel(level);
       rand = new Random();
@@ -85,16 +87,4 @@ namespace GameLibrary {
     }
   }
 }
-© 2019 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
 
