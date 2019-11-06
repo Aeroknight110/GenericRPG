@@ -21,6 +21,15 @@ namespace GameLibrary
             {5, "Fancy Hat"}
         };
 
+        public Dictionary<int, string> descList = new Dictionary<int, string>()
+        {
+            {1, "Better than a fist. Makes a 'pew pew' noise.\nDamage Multiplier: 1.0" },
+            {2, "Tastes..interesting.\nHeals 25 Hit Points." },
+            {3, "A knife made of plasma. Ouch.\nDamage Multiplier: 0.6\nThis weapon can critically hit." },
+            {4, "An axe that is heavy. But why?\nDamage Multiplier: 1.4" },
+            {5, "Only true gentle-people can adorn this hat." }
+        };
+
         
         public Item(int id)
         {

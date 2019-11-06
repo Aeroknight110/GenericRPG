@@ -35,7 +35,7 @@ namespace GenericRPG
             lblWeapon.Text = weapon.name.ToString();
             picWeapon.BackgroundImageLayout = ImageLayout.Stretch;
             picWeapon.BackgroundImage = imgList[weapon.wID];
-            weaponTip.Show(weapon.name, picWeapon);
+            weaponTip.SetToolTip(picWeapon, weapon.descList[weapon.wID]);
         }   
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -45,6 +45,11 @@ namespace GenericRPG
         {
             Game.GetGame().ChangeState(GameState.ON_MAP);
             Close();
+        }
+
+        private void FrmInventory_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
