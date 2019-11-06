@@ -24,6 +24,7 @@ namespace GameLibrary {
     private Position pos;
     private Map map;
     public float XP { get; private set; }
+    public float Gd { get; private set; }
     public bool ShouldLevelUp { get; private set; }
 
     /// <summary>
@@ -47,6 +48,9 @@ namespace GameLibrary {
         ShouldLevelUp = true;
       }
     }
+    public void GainGd(float total){
+            Gd += total;
+    }
 
     public override void LevelUp() {
       base.LevelUp();
@@ -64,6 +68,7 @@ namespace GameLibrary {
     public override void ResetStats() {
       base.ResetStats();
       XP = 0;
+      Gd = 0;
     }
 
     public void Move(MoveDir dir) {

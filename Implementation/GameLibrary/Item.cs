@@ -19,7 +19,8 @@ namespace GameLibrary
             {2, "Small Potion"},
             {3, "Beam Knife"},
             {4, "Beam Axe"},
-            {5, "Fancy Hat"}
+            {5, "Fancy Hat"},
+            {6, "gold"}
         };
 
         public string name

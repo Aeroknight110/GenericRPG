@@ -47,6 +47,8 @@ namespace GenericRPG {
       lblPlayerDef.Text = Math.Round(character.Def).ToString();
       lblPlayerMana.Text = Math.Round(character.Mana).ToString();
       lblPlayerXp.Text = Math.Round(character.XP).ToString();
+      //show the gold
+      lblPlayerGd.Text = Math.Round(character.Gd).ToString();  
 
       lblEnemyLevel.Text = enemy.Level.ToString();
       lblEnemyHealth.Text = Math.Round(enemy.Health).ToString();
@@ -65,8 +67,10 @@ namespace GenericRPG {
       lblEnemyDamage.Visible = true;
       tmrEnemyDamage.Enabled = true;
       if (enemy.Health <= 0) {
+        // #item drop + gold 
         character.GainXP(enemy.XpDropped);
-        lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!";
+        character.GainGd(enemy.GdDropped);
+        lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!"+Math.Round(enemy.GdDropped)+" Gold!";
         lblEndFightMessage.Visible = true;
         Refresh();
         Thread.Sleep(1200);
@@ -130,5 +134,6 @@ namespace GenericRPG {
         lblEnemyDamage.Top = 52;
       }
     }
-  }
+
+}
 }
