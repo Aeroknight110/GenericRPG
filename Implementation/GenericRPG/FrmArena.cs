@@ -52,7 +52,13 @@ namespace GenericRPG {
       // names
       lblPlayerName.Text = character.Name;
       lblEnemyName.Text = enemy.Name;
-    }
+
+            if (character.ClassType == classSystem.ARCHER)
+            {
+                character.SimpleAttack(enemy);
+            }
+            
+        }
     public void UpdateStats() {
       lblPlayerLevel.Text = character.Level.ToString();
       lblPlayerHealth.Text = Math.Round(character.Health).ToString();
