@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,15 +17,26 @@ namespace GenericRPG
     {
         private Game game;
         private Character character;
-        
+        private Weapon weapon;
+        public Dictionary<int, Bitmap> imgList = new Dictionary<int, Bitmap>()
+        {
+            {1, Resources.smallShooter},
+            {2, Resources.potion},
+            {3, Resources.beamKnife},
+            {4, Resources.beamAxe}
+        };
+
         public FrmInventory()
         {
             game = Game.GetGame();
             character = game.Character;
+            weapon = character.weapon;
             InitializeComponent();
-            lblWeapon.Text = character.weapon.damMod.ToString();
-        }
-
+            lblWeapon.Text = weapon.name.ToString();
+            picWeapon.BackgroundImageLayout = ImageLayout.Stretch;
+            picWeapon.BackgroundImage = imgList[weapon.wID];
+            weaponTip.Show(weapon.name, picWeapon);
+        }   
         private void btnClose_Click(object sender, EventArgs e)
         {
             closeInv();

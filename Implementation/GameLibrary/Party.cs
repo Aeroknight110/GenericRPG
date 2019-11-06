@@ -1,3 +1,5 @@
+using GameLibrary;
+using System.Windows.Forms;
 public class PartyRL : Roll {
     public PictureBox Pic { get; private set; }
     public float XP { get; private set; }
@@ -8,7 +10,7 @@ public class PartyRL : Roll {
         ShouldLevelUpRL = true;
       }
     }    
-    public override void LevelUpRL() {
+    public override void LevelUp() {
       base.LevelUp();
       ShouldLevelUpRL = false;
         }
@@ -25,7 +27,7 @@ public class PartyRU : Rush {
             ShouldLevelUpRU = true;
          }
     }
-    public override void LevelUpRU() {
+    public override void LevelUp() {
       base.LevelUp();
       ShouldLevelUpRU = false;
     }        

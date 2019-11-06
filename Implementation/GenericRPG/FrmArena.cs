@@ -41,7 +41,6 @@ namespace GenericRPG {
       game = Game.GetGame();
       character = game.Character;
       enemy = new Enemy(rand.Next(character.Level + 1), Resources.enemyRedStanding);
-
       // stats
       UpdateStats();
 

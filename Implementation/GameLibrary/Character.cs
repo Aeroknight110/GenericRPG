@@ -25,8 +25,7 @@ namespace GameLibrary {
     private Map map;
     public float XP { get; private set; }
     public bool ShouldLevelUp { get; private set; }
-
-    public Weapon weapon = new Weapon(4);
+    public Weapon weapon;
 
         /// <summary>
         /// 
@@ -34,7 +33,7 @@ namespace GameLibrary {
         /// <param name="pb"></param>
         /// <param name="pos"></param>
         /// <param name="map"></param>
-        public Character(PictureBox pb, Position pos, Map map) : base("Player 1", 1) {
+    public Character(PictureBox pb, Position pos, Map map) : base("Player 1", 1) {
       Pic = pb;
       this.pos = pos;
       this.map = map;

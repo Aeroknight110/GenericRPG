@@ -11,6 +11,7 @@ namespace GameLibrary
     {
         public string name;
         public int ID;
+        public string Img;
         public Dictionary<int, string> nameList = new Dictionary<int, string>()
         {
             {1, "Small Shooter"},
@@ -19,6 +20,7 @@ namespace GameLibrary
             {4, "Beam Axe"},
             {5, "Fancy Hat"}
         };
+
         
         public Item(int id)
         {

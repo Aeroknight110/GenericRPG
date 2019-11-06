@@ -85,7 +85,7 @@ namespace GameLibrary {
             {
                 randMult = (float)((rand.NextDouble() * (randMax - randMin)) + randMin * (float)weapon.damMod);
                 double chance = rand.NextDouble();
-                if(chance > .15)
+                if(chance < .15)
                     randMult *= (float)2.0;
             }
             else
