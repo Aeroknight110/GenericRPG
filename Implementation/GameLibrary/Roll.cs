@@ -1,4 +1,6 @@
 using System;
+using GameLibrary;
+
 
 namespace GameLibrary {
   public class Roll {
@@ -81,7 +83,7 @@ namespace GameLibrary {
       float randMax = 1 + SIMPLEATTACK_RANDOM_AMT;
       float randMin = 1 - SIMPLEATTACK_RANDOM_AMT;
       float randMult = (float)(rand.NextDouble() * (randMax - randMin)) + randMin;
-      //receiver.Health -= (baseDamage * randMult);
+      receiver.Health -= (baseDamage * randMult);
     }
   }
 }
