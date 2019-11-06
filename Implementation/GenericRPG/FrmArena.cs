@@ -46,8 +46,6 @@ namespace GenericRPG
 
             game = Game.GetGame();
             character = game.Character;
-            Roll roll = game.Roll;
-            Rush rush = game.Rush;
             enemy = new Enemy(rand.Next(character.Level + 1), Resources.enemyRedStanding);
             // stats
             UpdateStats();
@@ -291,7 +289,7 @@ namespace GenericRPG
                             UpdateStats();
                             tmrAnimation.Start();
                             float prevcEnemyHealth = enemy.Health;
-                            //Rush.SimpleAttack(enemy);
+                            Rush.SimpleAttack(enemy);
                             float enemycDamage = (float)Math.Round(prevcEnemyHealth - enemy.Health);
                             lblEnemyDamage.Text = enemyDamage.ToString();
                             lblEnemyDamage.Visible = true;

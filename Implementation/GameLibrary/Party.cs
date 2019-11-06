@@ -1,37 +1,35 @@
-using GameLibrary;
-using System.Windows.Forms;
-public class PartyRL : Roll {
+using System;
+using System.Collections.Generic;
+using System.Drawing;
 
-    public PictureBox Pic { get; private set; }
+namespace GameLibrary
+{
+    public class Roll : Mortal
+    {
+        public Bitmap Img { get; private set; }
+        public float XpDropped { get; private set; }
 
-    //public PictureBox Pic { get; private set; }
-    public float XP { get; private set; }
-    public bool ShouldLevelUpRL { get; private set; }
-    public void GainXP(float amount) {
-      XP += amount/2;
-      if ((int)XP / 75 >= Level) {
-        ShouldLevelUpRL = true;
-      }
-    }    
-    public override void LevelUp() {
-      base.LevelUp();
-      ShouldLevelUpRL = false;
+        private static readonly Random rand = new Random();
+        private static readonly List<string> names = new List<string>() {
+      "Bob", "Dr. Light", "WallCrusher"
+    };
+
+        public Enemy(int level, Bitmap img) : base(RandName(), level)
+        {
+            Img = img;
+
+            // weaken so player has a chance
+            Health /= (float)rand.NextDouble() * (WEAKEN_MAX - WEAKEN_MIN) + WEAKEN_MIN;
+            Mana /= (float)rand.NextDouble() * (WEAKEN_MAX - WEAKEN_MIN) + WEAKEN_MIN;
+            Str /= (float)rand.NextDouble() * (WEAKEN_MAX - WEAKEN_MIN) + WEAKEN_MIN;
+            Def /= (float)rand.NextDouble() * (WEAKEN_MAX - WEAKEN_MIN) + WEAKEN_MIN;
+
+            XpDropped = (float)rand.NextDouble() * (MAX_XP_DROP - MIN_XP_DROP) + MIN_XP_DROP;
         }
-    
-    }
 
-public class PartyRU : Rush {
-    public PictureBox Pic { get; private set; }
-    public float XP { get; private set; }
-    public bool ShouldLevelUpRU { get; private set; }
-    public void GainXP(float amount) {
-         XP += amount/2;
-         if ((int)XP / 75 >= Level) {
-            ShouldLevelUpRU = true;
-         }
+        public static string RandName()
+        {
+            return names[rand.Next(names.Count)];
+        }
     }
-    public override void LevelUp() {
-      base.LevelUp();
-      ShouldLevelUpRU = false;
-    }        
 }
