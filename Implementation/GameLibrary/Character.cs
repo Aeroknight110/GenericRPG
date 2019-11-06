@@ -16,39 +16,29 @@ namespace GameLibrary {
     }
   }
 
-    public enum classSystem
-    {
-        SCRUM,
-        WARRIOR,
-        MAGICIAN,
-        ARCHER
-    }
-
-    /// <summary>
-    /// This represents our player in our game
-    /// </summary>
-    public class Character : Mortal {
+  /// <summary>
+  /// This represents our player in our game
+  /// </summary>
+  public class Character : Mortal {
     public PictureBox Pic { get; private set; }
     private Position pos;
     private Map map;
     public float XP { get; private set; }
+    public float Gd { get; private set; }
     public bool ShouldLevelUp { get; private set; }
-        public classSystem ClassType { get; set; }
-    public Weapon weapon;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="pb"></param>
-        /// <param name="pos"></param>
-        /// <param name="map"></param>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="pb"></param>
+    /// <param name="pos"></param>
+    /// <param name="map"></param>
     public Character(PictureBox pb, Position pos, Map map) : base("Player 1", 1) {
       Pic = pb;
       this.pos = pos;
       this.map = map;
       ShouldLevelUp = false;
-            this.ClassType = classSystem.SCRUM;
-        }
+    }
 
     public void GainXP(float amount) {
       XP += amount;
@@ -58,12 +48,14 @@ namespace GameLibrary {
         ShouldLevelUp = true;
       }
     }
+    public void GainGd(float total){
+            Gd += total;
+    }
 
-   public override void LevelUp()
-   {
-       base.LevelUp();
-       ShouldLevelUp = false;
-   }
+    public override void LevelUp() {
+      base.LevelUp();
+      ShouldLevelUp = false;
+    }
 
     public void BackToStart() {
       pos.row = map.CharacterStartRow;
@@ -76,6 +68,7 @@ namespace GameLibrary {
     public override void ResetStats() {
       base.ResetStats();
       XP = 0;
+      Gd = 0;
     }
 
     public void Move(MoveDir dir) {

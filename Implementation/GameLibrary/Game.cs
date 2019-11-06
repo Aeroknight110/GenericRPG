@@ -36,7 +36,6 @@ namespace GameLibrary {
 
     public void SetCharacter(Character character) {
       Character = character;
-      character.weapon = new Weapon(1);
     }
   }
 }

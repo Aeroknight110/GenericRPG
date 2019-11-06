@@ -34,8 +34,8 @@ namespace GameLibrary {
 
     private Random rand;
 
-    public void MRoll( int level) {
-      Name = "Roll";
+    public Mortal(string name, int level) {
+      Name = name;
       ResetStats();
       SetLevel(level);
       rand = new Random();
@@ -81,8 +81,20 @@ namespace GameLibrary {
       float randMax = 1 + SIMPLEATTACK_RANDOM_AMT;
       float randMin = 1 - SIMPLEATTACK_RANDOM_AMT;
       float randMult = (float)(rand.NextDouble() * (randMax - randMin)) + randMin;
-      //receiver.Health -= (baseDamage * randMult);
+      receiver.Health -= (baseDamage * randMult);
     }
   }
 }
+© 2019 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
 
