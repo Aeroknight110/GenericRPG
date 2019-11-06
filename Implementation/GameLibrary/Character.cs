@@ -16,15 +16,24 @@ namespace GameLibrary {
     }
   }
 
-  /// <summary>
-  /// This represents our player in our game
-  /// </summary>
-  public class Character : Mortal {
+    public enum classSystem
+    {
+        SCRUM,
+        WARRIOR,
+        MAGICIAN,
+        ARCHER
+    }
+
+    /// <summary>
+    /// This represents our player in our game
+    /// </summary>
+    public class Character : Mortal {
     public PictureBox Pic { get; private set; }
     private Position pos;
     private Map map;
     public float XP { get; private set; }
     public bool ShouldLevelUp { get; private set; }
+        public classSystem ClassType { get; set; }
     public Weapon weapon;
 
         /// <summary>
@@ -38,7 +47,8 @@ namespace GameLibrary {
       this.pos = pos;
       this.map = map;
       ShouldLevelUp = false;
-    }
+            this.ClassType = classSystem.SCRUM;
+        }
 
     public void GainXP(float amount) {
       XP += amount;

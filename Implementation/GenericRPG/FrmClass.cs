@@ -20,22 +20,22 @@ namespace GenericRPG
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Game.GetGame().Character.ClassType = classSystem.WARRIOR;
-           // Game.GetGame().Character.resetStr(9999);
+            Game.GetGame().Character.ClassType = classSystem.WARRIOR;
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-           // Game.GetGame().Character.ClassType = classSystem.WARRIOR;
+            Game.GetGame().Character.ClassType = classSystem.WARRIOR;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-           // Game.GetGame().Character.ClassType = classSystem.MAGICIAN;
+            Game.GetGame().Character.ClassType = classSystem.MAGICIAN;
             Console.WriteLine("You choose Mag");
         }
 
-
+        
 
         private void btnClose_Click(object sender, EventArgs e)
         {

@@ -76,8 +76,36 @@ namespace GameLibrary {
       Mana = MaxMana;
     }
     public void SimpleAttack(Mortal receiver, Weapon weapon = null) {
-      float baseDamage = Math.Abs((Str * 1.2f - receiver.Def));
-      float randMax = 1 + SIMPLEATTACK_RANDOM_AMT;
+            float baseDamage = 0;
+            float strCoeffient = 1.0f;
+            switch (Game.GetGame().Character.ClassType)
+            {
+
+                case classSystem.SCRUM:
+                    strCoeffient = 1.0f;
+
+                    break;
+
+                case classSystem.WARRIOR:
+
+                    strCoeffient = 2.0f;
+                    break;
+                case classSystem.MAGICIAN:
+
+                    strCoeffient = 0.7f;
+                    break;
+                case classSystem.ARCHER:
+                    strCoeffient = 1.2f;
+
+
+                    break;
+                default:
+                    baseDamage = 0;
+
+                    break;
+            }
+            baseDamage = Math.Abs(Str * strCoeffient - receiver.Def);
+            float randMax = 1 + SIMPLEATTACK_RANDOM_AMT;
       float randMin = 1 - SIMPLEATTACK_RANDOM_AMT;
       float randMult;
       if (weapon != null)
@@ -96,5 +124,68 @@ namespace GameLibrary {
       }
       receiver.Health -= (baseDamage * randMult);
     }
-  }
+
+        public void MagicAttack(Mortal receiver)
+        {
+            float strCoeffient = 0.2f;
+            float ManaCoeffient = 0.5f;
+            if (Mana >= 5)
+            {
+
+                float baseDamage = 0;
+                Mana = Mana - 5;
+                switch (Game.GetGame().Character.ClassType)
+                {
+                    case classSystem.SCRUM:
+                        strCoeffient = 0.5f;
+                        ManaCoeffient = 0.7f;
+
+
+                        break;
+
+                    case classSystem.WARRIOR:
+                        strCoeffient = 0.8f;
+                        ManaCoeffient = 0.7f;
+                        break;
+                    case classSystem.MAGICIAN:
+                        Mana = Mana - 5;
+                        strCoeffient = 0.5f;
+                        ManaCoeffient = 1.5f;
+                        break;
+                    case classSystem.ARCHER:
+                        strCoeffient = 0.8f;
+                        ManaCoeffient = 0.8f;
+
+
+                        break;
+                    default:
+                        strCoeffient = 0.1f;
+                        ManaCoeffient = 0.1f;
+                        break;
+
+                }
+                baseDamage = Math.Abs(Str * strCoeffient + ManaCoeffient * MaxMana - receiver.Def);
+                float randMax = 1 + SIMPLEATTACK_RANDOM_AMT;
+                float randMin = 1 - SIMPLEATTACK_RANDOM_AMT;
+                float randMult = (float)(rand.NextDouble() * (randMax - randMin)) + randMin;
+
+
+                receiver.Health -= (baseDamage * randMult);
+            }
+            else
+            {
+
+                Console.WriteLine("YOU DONT HAVE ENOUGH MANA");
+            }
+
+
+
+
+
+
+        }
+
+
+
+    }
 }
