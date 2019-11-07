@@ -18,6 +18,8 @@ namespace GenericRPG
         private Game game;
         private Character character;
         private Weapon weapon;
+        private PictureBox[] invMap = new PictureBox[25];
+        private ToolTip[] tipMap = new ToolTip[25];
         public Dictionary<int, Bitmap> imgList = new Dictionary<int, Bitmap>()
         {
             {1, Resources.smallShooter},
@@ -32,11 +34,34 @@ namespace GenericRPG
             character = game.Character;
             weapon = character.weapon;
             InitializeComponent();
+            invMap[0] = picInv0;
+            invMap[1] = picInv1;
+            invMap[2] = picInv2;
+            invMap[3] = picInv3;
+            invMap[4] = picInv4;
+            tipMap[0] = picInv0Tip;
+            tipMap[1] = picInv1Tip;
+            tipMap[2] = picInv2Tip;
+            tipMap[3] = toolTip2;
+            tipMap[4] = toolTip3;
             lblWeapon.Text = weapon.name.ToString();
             picWeapon.BackgroundImageLayout = ImageLayout.Stretch;
             picWeapon.BackgroundImage = imgList[weapon.wID];
             weaponTip.SetToolTip(picWeapon, weapon.descList[weapon.wID]);
-        }   
+            addItems();
+        }
+        public void addItems()
+        {
+            Item newItem;
+            int i = 0;
+            while (character.charInv.inv[i] != 0) {
+                newItem = new Item(character.charInv.inv[i]);
+                invMap[i].BackgroundImageLayout = ImageLayout.Stretch;
+                invMap[i].BackgroundImage = imgList[character.charInv.inv[i]];
+                tipMap[i].SetToolTip(invMap[i], newItem.descList[character.charInv.inv[i]]);
+                i++;
+            }
+        }
         private void btnClose_Click(object sender, EventArgs e)
         {
             closeInv();
@@ -45,11 +70,6 @@ namespace GenericRPG
         {
             Game.GetGame().ChangeState(GameState.ON_MAP);
             Close();
-        }
-
-        private void FrmInventory_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
