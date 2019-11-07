@@ -96,6 +96,7 @@ namespace GenericRPG
             _counter = 0;
             tmrAnimation.Enabled = true;
             tmrAnimation.Start();
+            float partyDealtEnemycDamage = 0;
 
             float prevEnemyHealth = enemy.Health;
             character.SimpleAttack(enemy, character.weapon);
@@ -215,10 +216,13 @@ namespace GenericRPG
                         tmrAnimation.Start();
                         float prevcEnemyHealth = enemy.Health;
                         rush.SimpleAttack(enemy, rush.Weapon);
-                        float enemycDamage = (float)Math.Round(prevcEnemyHealth - enemy.Health);
-                        lblEnemyDamage.Text = enemyDamage.ToString();
-                        lblEnemyDamage.Visible = true;
-                        tmrEnemyDamage.Enabled = true;
+                        partyDealtEnemycDamage = (float)Math.Round(prevcEnemyHealth - enemy.Health);
+                        //lblEnemyDamage.Text = enemyDamage.ToString();
+                        //lblEnemyDamage.Visible = true;
+                        label15.Text = partyDealtEnemycDamage.ToString();
+                        label15.Visible = true;
+                        timer2.Enabled = true;
+                        //tmrEnemyDamage.Enabled = true;
                         if (enemy.Health <= 0)
                         {
 
@@ -438,6 +442,17 @@ namespace GenericRPG
                 lblEnemyDamage.Visible = false;
                 tmrEnemyDamage.Enabled = false;
                 lblEnemyDamage.Top = 52;
+            }
+        }
+
+        private void tmrPartyDamage_Tick(object sender, EventArgs e)
+        {
+            label15.Top -= 2;
+            if (label15.Top < 10)
+            {
+                label15.Visible = false;
+                tmrEnemyDamage.Enabled = false;
+                label15.Top = 52;
             }
         }
 
