@@ -37,7 +37,5 @@ namespace GenericRPG
             int volumeLevel = (enableSound.Checked == true) ? 10 : 0;
             SetVolume(volumeLevel);
         }
-
-        
     }
 }
