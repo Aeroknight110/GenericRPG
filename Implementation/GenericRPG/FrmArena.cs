@@ -183,7 +183,7 @@ namespace GenericRPG
                         character.GainXP(X);
                         roll.GainXP(X);
                         rush.GainXP(X);
-                        lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!";
+                        lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!" + Math.Round(enemy.GbDropped) + "gb!";
                         lblEndFightMessage.Visible = true;
                         Refresh();
                         Thread.Sleep(1200);
@@ -231,7 +231,7 @@ namespace GenericRPG
                             character.GainXP(X);
                             roll.GainXP(X);
                             rush.GainXP(X);
-                            lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!";
+                            lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!" + Math.Round(enemy.GbDropped) + "gb!";
                             lblEndFightMessage.Visible = true;
                             Refresh();
                             Thread.Sleep(1200);
@@ -279,7 +279,7 @@ namespace GenericRPG
                 if (enemy.Health <= 0)
                 {
                     character.GainXP(enemy.XpDropped);
-                    lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!";
+                    lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!" + Math.Round(enemy.GbDropped) + "gb!";
                     lblEndFightMessage.Visible = true;
                     Refresh();
                     Thread.Sleep(1200);

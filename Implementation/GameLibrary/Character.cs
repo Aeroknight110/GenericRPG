@@ -1,5 +1,5 @@
 ﻿using System.Windows.Forms;
-
+using System;
 namespace GameLibrary {
   public struct Position {
     public int row;
@@ -68,6 +68,7 @@ namespace GameLibrary {
 
     public void GainGb(float amount){
         Gb += amount;
+           // Console.WriteLine("GOLD ADDED"+amount);
 
     }
 
