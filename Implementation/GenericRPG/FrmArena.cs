@@ -79,7 +79,7 @@ namespace GenericRPG
             lblPlayerMana.Text = Math.Round(character.Mana).ToString();
             lblPlayerXp.Text = Math.Round(character.XP).ToString();
             lblPlayerGb.Text = Math.Round(character.Gb).ToString();
-
+            lblPlayerPt.Text = Math.Round(character.Pt).ToString();
 
             lblEnemyLevel.Text = enemy.Level.ToString();
             lblEnemyHealth.Text = Math.Round(enemy.Health).ToString();
@@ -109,7 +109,8 @@ namespace GenericRPG
             {
                 character.GainXP(enemy.XpDropped);
                 character.GainGb(enemy.GbDropped);
-                lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!" + Math.Round(enemy.GbDropped) + "gb!";
+                character.GainPt(enemy.PtDropped);
+                lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!" + Math.Round(enemy.GbDropped) + "gb!"+Math.Round(enemy.PtDropped)+"Pt";
                 lblEndFightMessage.Visible = true;
                 Refresh();
                 Thread.Sleep(1200);
@@ -506,6 +507,13 @@ namespace GenericRPG
 
         private void BtnHeal_Click(object sender, EventArgs e)
         {
+            if(character.Pt>=1)
+            {
+                float prevPlayerHealth = character.Health;
+                float Heal = 15f;
+                float playerHeal = (float) Math.Round(character.Health +Heal);
+                lblPlayerHealth.Text = playerHeal.ToString();
+            }
 
 
         }
