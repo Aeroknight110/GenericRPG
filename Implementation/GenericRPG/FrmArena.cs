@@ -292,6 +292,12 @@ namespace GenericRPG
                             {
                                 FrmLevelUp frmLevelUp = new FrmLevelUp();
                                 frmLevelUp.Show();
+
+                                if(Game.GetGame().Character.Level ==2)
+                                {
+                                    FrmClass frmClass = new FrmClass();
+                                    frmClass.Show();
+                                }
                             }
                         }
                         else
