@@ -187,10 +187,13 @@
     <Content Include="Resources\Edit\vortex.fw.png" />
     <Content Include="Resources\enemyRed.png" />
     <Content Include="Resources\enemyRedStanding.png" />
+    <None Include="Resources\hiclipart.com-id_djsli.png" />
+    <None Include="Resources\kisspng-hollow-knight-game-team-cherry-sticker-5ae705b30f0594.5424532715250897150615.png" />
     <Content Include="Resources\levelup.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\potion.bmp" />
+    <None Include="Resources\pngguru.com-id-fvswz.png" />
     <Content Include="Resources\potion.png" />
     <Content Include="Resources\attack.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
