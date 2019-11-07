@@ -7,29 +7,59 @@ namespace GameLibrary
     public class Roll : Mortal
     {
         public Bitmap Img { get; private set; }
-        public float XpDropped { get; private set; }
+        public Weapon Weapon { get; private set; }
+        public float XP { get; private set; }
+        public bool ShouldLevelUp { get; private set; }
+        public void GainXP(float amount)
+        {
+            XP += amount;
 
-        private static readonly Random rand = new Random();
-        private static readonly List<string> names = new List<string>() {
-      "Bob", "Dr. Light", "WallCrusher"
-    };
+            // every 100 experience points you gain a level
+            if ((int)XP / 100 >= Level)
+            {
+                ShouldLevelUp = true;
+            }
+        }
 
-        public Enemy(int level, Bitmap img) : base(RandName(), level)
+        public override void LevelUp()
+        {
+            base.LevelUp();
+            ShouldLevelUp = false;
+        }
+        public Roll(Bitmap img) : base("Roll", 1)
+        {
+           Img = img;
+           Weapon = new Weapon(1);
+        }
+        
+    }
+    public class Rush : Mortal
+    {
+        public Bitmap Img { get; private set; }
+        public Weapon Weapon { get; private set; }
+        public float XP { get; private set; }
+        public bool ShouldLevelUp { get; private set; }
+        public void GainXP(float amount)
+        {
+            XP += amount;
+
+            // every 100 experience points you gain a level
+            if ((int)XP / 100 >= Level)
+            {
+                ShouldLevelUp = true;
+            }
+        }
+
+        public override void LevelUp()
+        {
+            base.LevelUp();
+            ShouldLevelUp = false;
+        }
+        public Rush(Bitmap img) : base("Rush", 1)
         {
             Img = img;
-
-            // weaken so player has a chance
-            Health /= (float)rand.NextDouble() * (WEAKEN_MAX - WEAKEN_MIN) + WEAKEN_MIN;
-            Mana /= (float)rand.NextDouble() * (WEAKEN_MAX - WEAKEN_MIN) + WEAKEN_MIN;
-            Str /= (float)rand.NextDouble() * (WEAKEN_MAX - WEAKEN_MIN) + WEAKEN_MIN;
-            Def /= (float)rand.NextDouble() * (WEAKEN_MAX - WEAKEN_MIN) + WEAKEN_MIN;
-
-            XpDropped = (float)rand.NextDouble() * (MAX_XP_DROP - MIN_XP_DROP) + MIN_XP_DROP;
+            Weapon = new Weapon(1);
         }
 
-        public static string RandName()
-        {
-            return names[rand.Next(names.Count)];
-        }
     }
 }
