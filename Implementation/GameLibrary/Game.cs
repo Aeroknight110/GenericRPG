@@ -14,13 +14,13 @@ namespace GameLibrary {
     INVENTORY,
   }
 
-  public class Game {
-    private static Game game;
+    public class Game {
+        private static Game game;
 
-    public Character Character { get; private set; }
-    public GameState State { get; private set; }
-    public Roll Roll;
-    public Rush Rush;
+        public Character Character { get; private set; }
+        public GameState State { get; private set; }
+        public Roll Roll { get; private set; }
+        public Rush Rush {get; private set; }
     private Game() {
       State = GameState.LOADING;
     }
