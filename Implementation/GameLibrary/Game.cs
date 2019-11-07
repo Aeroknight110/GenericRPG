@@ -20,8 +20,8 @@ namespace GameLibrary {
 
         public Character Character { get; private set; }
         public GameState State { get; private set; }
-        public Roll Roll { get; private set; }
-        public Rush Rush {get; private set; }
+        public Roll Roll = new Roll();
+        public Rush Rush = new Rush();
     private Game() {
       State = GameState.LOADING;
     }

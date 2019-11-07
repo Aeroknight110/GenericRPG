@@ -26,9 +26,9 @@ namespace GameLibrary
             base.LevelUp();
             ShouldLevelUp = false;
         }
-        public Roll(Bitmap img) : base("Roll", 1)
+        public Roll(int Level=1) : base("Roll", Level )
         {
-           Img = img;
+           //Img = img;
            Weapon = new Weapon(1);
         }
         
@@ -51,13 +51,13 @@ namespace GameLibrary
         }
 
         public override void LevelUp()
-        {
+        { 
             base.LevelUp();
             ShouldLevelUp = false;
         }
-        public Rush(Bitmap img) : base("Rush", 1)
+        public Rush(int level=1) : base("Rush", level)
         {
-            Img = img;
+            //Img = img;
             Weapon = new Weapon(1);
         }
 

@@ -171,7 +171,7 @@ namespace GenericRPG
                     tmrAnimation.Enabled = true;
                     tmrAnimation.Start();
                     float prevrEnemyHealth = enemy.Health;
-                    //roll.SimpleAttack(enemy,roll.Weapon);
+                    roll.SimpleAttack(enemy,roll.Weapon);
                     float enemyrDamage = (float)Math.Round(prevrEnemyHealth - enemy.Health);
                     lblEnemyDamage.Text = enemyDamage.ToString();
                     lblEnemyDamage.Visible = true;
@@ -180,8 +180,8 @@ namespace GenericRPG
                     {
                         float X = enemy.XpDropped;
                         character.GainXP(X);
-                        //roll.GainXP(X);
-                        // rush.GainXP(X);
+                        roll.GainXP(X);
+                        rush.GainXP(X);
                         lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!";
                         lblEndFightMessage.Visible = true;
                         Refresh();
@@ -214,7 +214,7 @@ namespace GenericRPG
                         tmrAnimation.Enabled = true;
                         tmrAnimation.Start();
                         float prevcEnemyHealth = enemy.Health;
-                        //rush.SimpleAttack(enemy, rush.Weapon);
+                        rush.SimpleAttack(enemy, rush.Weapon);
                         float enemycDamage = (float)Math.Round(prevcEnemyHealth - enemy.Health);
                         lblEnemyDamage.Text = enemyDamage.ToString();
                         lblEnemyDamage.Visible = true;
@@ -225,8 +225,8 @@ namespace GenericRPG
 
                             float X = enemy.XpDropped;
                             character.GainXP(X);
-                            //roll.GainXP(X);
-                            //rush.GainXP(X);
+                            roll.GainXP(X);
+                            rush.GainXP(X);
                             lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!";
                             lblEndFightMessage.Visible = true;
                             Refresh();
