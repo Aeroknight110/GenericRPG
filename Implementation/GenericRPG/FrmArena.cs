@@ -79,6 +79,7 @@ namespace GenericRPG
             lblPlayerMana.Text = Math.Round(character.Mana).ToString();
             lblPlayerXp.Text = Math.Round(character.XP).ToString();
             lblPlayerGb.Text = Math.Round(character.Gb).ToString();
+            lblPlayerPt.Text = Math.Round(character.Pt).ToString();
 
 
             lblEnemyLevel.Text = enemy.Level.ToString();
@@ -108,7 +109,8 @@ namespace GenericRPG
             {
                 character.GainXP(enemy.XpDropped);
                 character.GainGb(enemy.GbDropped);
-                lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!"+Math.Round(enemy.GbDropped)+ "gb!";
+                character.GainPt(enemy.PtDropped);
+                lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!"+Math.Round(enemy.GbDropped)+ "gb!"+Math.Round(enemy.PtDropped)+"Pt";
                 lblEndFightMessage.Visible = true;
                 Refresh();
                 Thread.Sleep(1200);
@@ -174,7 +176,8 @@ namespace GenericRPG
                 {
                     character.GainXP(enemy.XpDropped);
                     character.GainGb(enemy.GbDropped);
-                    lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!" + Math.Round(enemy.GbDropped) + "gb!";
+                    character.GainPt(enemy.PtDropped);
+                    lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!"+Math.Round(enemy.GbDropped)+ "gb!"+Math.Round(enemy.PtDropped)+"Pt";
                     lblEndFightMessage.Visible = true;
                     Refresh();
                     Thread.Sleep(1200);
@@ -407,8 +410,13 @@ namespace GenericRPG
 
         private void BtnHeal_Click(object sender, EventArgs e)
         {
-           
-            
+           if (Game.GetGame().Character.Pt >= 1)
+           {
+                float Heal = 15;
+                float playerHeal = (float)Math.Round(Heal + character.Health);
+                lblPlayerHealth.Text = playerHeal.ToString();
+           }
+          
         }
     }
 }

@@ -236,9 +236,9 @@ namespace GameLibrary {
 
 
         }
-        public void Heal()
+        public void Heal(Mortal receiver)
         {
-            Health += 15;
+            receiver.Health += 15;
         }
 
 

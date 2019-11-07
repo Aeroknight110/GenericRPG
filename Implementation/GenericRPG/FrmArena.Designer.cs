@@ -67,6 +67,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label12 = new System.Windows.Forms.Label();
             this.btnHeal = new System.Windows.Forms.Button();
+            this.lblPlayerPt = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picCharacter)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -230,6 +231,7 @@
             this.lblPlayerGb.Size = new System.Drawing.Size(75, 19);
             this.lblPlayerGb.TabIndex = 17;
             this.lblPlayerGb.Text = "label1";
+            this.lblPlayerGb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label14
             // 
@@ -584,14 +586,27 @@
             // btnHeal
             // 
             this.btnHeal.BackColor = System.Drawing.Color.Lime;
+            this.btnHeal.Font = new System.Drawing.Font("SimSun", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnHeal.ForeColor = System.Drawing.Color.Black;
-            this.btnHeal.Location = new System.Drawing.Point(408, 362);
+            this.btnHeal.Location = new System.Drawing.Point(408, 356);
             this.btnHeal.Name = "btnHeal";
-            this.btnHeal.Size = new System.Drawing.Size(112, 46);
+            this.btnHeal.Size = new System.Drawing.Size(114, 52);
             this.btnHeal.TabIndex = 19;
             this.btnHeal.Text = "Heal";
             this.btnHeal.UseVisualStyleBackColor = false;
             this.btnHeal.Click += new System.EventHandler(this.BtnHeal_Click);
+            // 
+            // lblPlayerPt
+            // 
+            this.lblPlayerPt.AutoSize = true;
+            this.lblPlayerPt.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblPlayerPt.ForeColor = System.Drawing.Color.Lime;
+            this.lblPlayerPt.Location = new System.Drawing.Point(425, 411);
+            this.lblPlayerPt.Name = "lblPlayerPt";
+            this.lblPlayerPt.Size = new System.Drawing.Size(75, 20);
+            this.lblPlayerPt.TabIndex = 20;
+            this.lblPlayerPt.Text = "label1";
+            this.lblPlayerPt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmArena
             // 
@@ -599,6 +614,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(941, 578);
+            this.Controls.Add(this.lblPlayerPt);
             this.Controls.Add(this.btnHeal);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label10);
@@ -668,5 +684,6 @@
         private System.Windows.Forms.Label lblPlayerGb;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btnHeal;
+        private System.Windows.Forms.Label lblPlayerPt;
     }
 }

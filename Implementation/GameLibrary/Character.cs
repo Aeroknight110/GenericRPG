@@ -68,9 +68,9 @@ namespace GameLibrary {
 
     }
 
-    public void GainPt(float amount)
+    public void GainPt(float total)
         {
-            Pt += amount;
+            Pt += total;
         }
 
    public override void LevelUp()
@@ -91,6 +91,7 @@ namespace GameLibrary {
       base.ResetStats();
       XP = 0;
       Gb = 0;
+      Pt = 0;
     }
 
     public void Move(MoveDir dir) {

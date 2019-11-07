@@ -10,8 +10,8 @@ namespace GameLibrary {
     private const float MAX_GB_DROP = 30;
     private const float WEAKEN_MIN = 1.25f;
     private const float WEAKEN_MAX = 1.85f;
-        private const float MAX_PT_DROP = 1;
-        private const float MIN_PT_DROP = 0;
+        private const float MAX_PT_DROP = 2;
+        private const float MIN_PT_DROP = 1;
 
     public Bitmap Img { get; private set; }
     public float XpDropped { get; private set; }
