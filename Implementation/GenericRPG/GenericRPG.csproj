@@ -147,7 +147,6 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
@@ -157,11 +156,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -178,6 +172,7 @@
   <ItemGroup>
     <Content Include="obj\Debug\GenericRPG.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\TempPE\Properties.Resources1.Designer.cs.dll" />
+    <None Include="Resources\warrior2.bmp" />
     <None Include="Resources\beamKnife.png" />
     <None Include="Resources\beamAxe.png" />
     <Content Include="Resources\characterStanding.png" />
@@ -187,10 +182,13 @@
     <Content Include="Resources\Edit\vortex.fw.png" />
     <Content Include="Resources\enemyRed.png" />
     <Content Include="Resources\enemyRedStanding.png" />
+    <None Include="Resources\kisspng-hollow-knight-game-team-cherry-sticker-5ae705b30f0594.5424532715250897150615.png" />
+    <None Include="Resources\hiclipart.com-id_djsli.png" />
     <Content Include="Resources\levelup.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\potion.bmp" />
+    <None Include="Resources\pngguru.com-id-fvswz.png" />
     <Content Include="Resources\potion.png" />
     <Content Include="Resources\attack.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
