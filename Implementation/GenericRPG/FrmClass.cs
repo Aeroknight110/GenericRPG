@@ -22,9 +22,9 @@ namespace GenericRPG
         {
             Game.GetGame().Character.ClassType = classSystem.WARRIOR;
 
-            Game.GetGame().Character.MaxHealth= 200;
+            Game.GetGame().Character.MaxHealth= 100;
             Game.GetGame().Character.Str = 20;
-            Game.GetGame().Character.Def = 10;
+            Game.GetGame().Character.Def = 5;
             Game.GetGame().Character.Luck = 0;
             Game.GetGame().Character.MaxMana = 10;
         }
@@ -37,9 +37,9 @@ namespace GenericRPG
         private void button2_Click(object sender, EventArgs e)
         {
             Game.GetGame().Character.ClassType = classSystem.MAGICIAN;
-            Game.GetGame().Character.MaxHealth = 100;
+            Game.GetGame().Character.MaxHealth = 50;
             Game.GetGame().Character.Str = 5;
-            Game.GetGame().Character.Def = 5;
+            Game.GetGame().Character.Def = 3;
             Game.GetGame().Character.Luck = 5;
             Game.GetGame().Character.MaxMana = 60;
         }
@@ -47,9 +47,9 @@ namespace GenericRPG
         private void button3_Click(object sender, EventArgs e)
         {
             Game.GetGame().Character.ClassType = classSystem.ARCHER;
-            Game.GetGame().Character.MaxHealth = 100;
+            Game.GetGame().Character.MaxHealth = 50;
             Game.GetGame().Character.Str = 15;
-            Game.GetGame().Character.Def = 7;
+            Game.GetGame().Character.Def = 3;
             Game.GetGame().Character.Luck = 10;
             Game.GetGame().Character.MaxMana = 30;
         }

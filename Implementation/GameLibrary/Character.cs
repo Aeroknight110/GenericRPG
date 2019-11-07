@@ -30,6 +30,7 @@ namespace GameLibrary {
     public class Character : Mortal {
     public PictureBox Pic { get; private set; }
     private Position pos;
+        public bool undead { get; set; }
     private Map map;
     public float XP { get; private set; }
     //add gold drop
@@ -50,7 +51,8 @@ namespace GameLibrary {
       Pic = pb;
       this.pos = pos;
       this.map = map;
-      ShouldLevelUp = false;
+      this.undead = false;
+        ShouldLevelUp = false;
             this.ClassType = classSystem.SCRUM;
         }
 

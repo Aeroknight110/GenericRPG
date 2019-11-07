@@ -46,6 +46,10 @@ namespace GenericRPG {
                 case Keys.I:
                     game.ChangeState(GameState.INVENTORY);
                     break;
+                case Keys.Q:
+                    Game.GetGame().Character.undead = true;
+                    Console.WriteLine("TRUE NOW, at least it should");
+                    break;
 
             }
             if (dir != MoveDir.NO_MOVE)

@@ -103,7 +103,7 @@ namespace GenericRPG
             lblEnemyDamage.Text = enemyDamage.ToString();
             lblEnemyDamage.Visible = true;
             tmrEnemyDamage.Enabled = true;
-
+            
             if (enemy.Health <= 0)
             {
                 character.GainXP(enemy.XpDropped);
@@ -130,8 +130,8 @@ namespace GenericRPG
 
                 }
             }
-            else
-            {
+            else{
+                Console.WriteLine(character.undead);
                 float prevPlayerHealth = character.Health;
                 enemy.SimpleAttack(character);
                 float playerDamage = (float)Math.Round(prevPlayerHealth - character.Health);
@@ -140,15 +140,23 @@ namespace GenericRPG
                 tmrPlayerDamage.Enabled = true;
                 if (character.Health <= 0)
                 {
-                    UpdateStats();
-                    game.ChangeState(GameState.DEAD);
-                    lblEndFightMessage.Text = "You Were Defeated!";
-                    lblEndFightMessage.Visible = true;
-                    Refresh();
-                    Thread.Sleep(1200);
-                    EndFight();
-                    FrmGameOver frmGameOver = new FrmGameOver();
-                    frmGameOver.Show();
+                    Console.WriteLine(character.undead);
+                    if (character.undead)
+                    {
+                        UpdateStats();
+                        character.Health = character.MaxHealth;
+                    }
+                    else { 
+                        UpdateStats();
+                        game.ChangeState(GameState.DEAD);
+                        lblEndFightMessage.Text = "You Were Defeated!";
+                        lblEndFightMessage.Visible = true;
+                        Refresh();
+                        Thread.Sleep(1200);
+                        EndFight();
+                        FrmGameOver frmGameOver = new FrmGameOver();
+                        frmGameOver.Show();
+                    }
                 }
                 else
                 {
@@ -195,6 +203,8 @@ namespace GenericRPG
                         tmrEnemyDamage.Enabled = true;
                         if (enemy.Health <= 0)
                         {
+
+
                             float X = enemy.XpDropped;
                             character.GainXP(X);
                             //roll.GainXP(X);
@@ -222,7 +232,11 @@ namespace GenericRPG
 
         private void btnMagicAttack_Click(object sender, EventArgs e)
         {
-            if (Game.GetGame().Character.Mana >= 5)
+            if (character.undead)
+            {
+                character.Health = character.MaxHealth;
+            }
+            else if (Game.GetGame().Character.Mana >= 5)
             {
                 //Form2 f2 = new Form2();
                 //f2.Show();
@@ -247,6 +261,7 @@ namespace GenericRPG
                         frmLevelUp.Show();
                     }
                 }
+                
                 else
                 {
                     float prevPlayerHealth = character.Health;
@@ -314,15 +329,18 @@ namespace GenericRPG
                     tmrPlayerDamage.Enabled = true;
                     if (character.Health <= 0)
                     {
-                        UpdateStats();
-                        game.ChangeState(GameState.DEAD);
-                        lblEndFightMessage.Text = "You Were Defeated!";
-                        lblEndFightMessage.Visible = true;
-                        Refresh();
-                        Thread.Sleep(1200);
-                        EndFight();
-                        FrmGameOver frmGameOver = new FrmGameOver();
-                        frmGameOver.Show();
+                        
+                       
+                            UpdateStats();
+                            game.ChangeState(GameState.DEAD);
+                            lblEndFightMessage.Text = "You Were Defeated!";
+                            lblEndFightMessage.Visible = true;
+                            Refresh();
+                            Thread.Sleep(1200);
+                            EndFight();
+                            FrmGameOver frmGameOver = new FrmGameOver();
+                            frmGameOver.Show();
+                        
                     }
                     else
                     {
