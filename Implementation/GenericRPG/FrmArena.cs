@@ -25,8 +25,13 @@ namespace GenericRPG
         static SoundPlayer soundTwo = new SoundPlayer(@"Resources/punch.wav");
         static SoundPlayer soundThree = new SoundPlayer(@"Resources/slap.wav");
         static SoundPlayer soundFour = new SoundPlayer(@"Resources/punches.wav");
+        static SoundPlayer magicOne = new SoundPlayer(@"Resources/magic1.wav");
+        static SoundPlayer magicTwo = new SoundPlayer(@"Resources/magic2.wav");
+        static SoundPlayer magicThree = new SoundPlayer(@"Resources/magic3.wav");
+        static SoundPlayer magicFour = new SoundPlayer(@"Resources/magic4.wav");
         /// Creates an array with the different sound options
         SoundPlayer[] listOfSounds = { soundOne, soundTwo, soundThree, soundFour };
+        SoundPlayer[] listOfMagicSounds = { magicOne, magicTwo, magicThree, magicFour };
 
         public FrmArena()
         {
@@ -289,8 +294,12 @@ namespace GenericRPG
 
         private void btnMagicAttack_Click(object sender, EventArgs e)
         {
-            
-             if (Game.GetGame().Character.Mana >= 5)
+            MakeMagicSoundEffect();
+            _counter = 0;
+            tmrAnimation.Enabled = true;
+            tmrAnimation.Start();
+
+            if (Game.GetGame().Character.Mana >= 5)
             {
                 //Form2 f2 = new Form2();
                 //f2.Show();
@@ -486,6 +495,13 @@ namespace GenericRPG
         {
             (listOfSounds[new Random().Next(0, listOfSounds.Length)]).Play();
         }
+
+        /// Randomly chooses a magic sound effect from the array of sounds each time the magic attack button is pressed
+        public void MakeMagicSoundEffect()
+        {
+            (listOfMagicSounds[new Random().Next(0, listOfMagicSounds.Length)]).Play();
+        }
+
 
         /// Creates the appearance of the characters punching when Simple Attack is pressed
         private void tmrAnimation_Tick(object sender, EventArgs e)
