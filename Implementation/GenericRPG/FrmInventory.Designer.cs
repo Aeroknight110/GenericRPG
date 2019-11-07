@@ -41,8 +41,8 @@
             this.picInv0Tip = new System.Windows.Forms.ToolTip(this.components);
             this.picInv1Tip = new System.Windows.Forms.ToolTip(this.components);
             this.picInv2Tip = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
+            this.picInv3Tip = new System.Windows.Forms.ToolTip(this.components);
+            this.picInv4Tip = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.picWeapon = new System.Windows.Forms.PictureBox();
             this.lblHeadgear = new System.Windows.Forms.Label();
@@ -226,8 +226,8 @@
         private System.Windows.Forms.ToolTip picInv0Tip;
         private System.Windows.Forms.ToolTip picInv1Tip;
         private System.Windows.Forms.ToolTip picInv2Tip;
-        private System.Windows.Forms.ToolTip toolTip2;
-        private System.Windows.Forms.ToolTip toolTip3;
+        private System.Windows.Forms.ToolTip picInv3Tip;
+        private System.Windows.Forms.ToolTip picInv4Tip;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.PictureBox picWeapon;
         private System.Windows.Forms.Label lblHeadgear;

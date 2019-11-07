@@ -61,15 +61,14 @@ namespace GenericRPG {
                     frmArena.Show();
                 }
             }
-            if (character.pos.row == 5 && character.pos.col == 9)
-            {
-                character.charInv.addItem(2);
-                game.ChangeState(GameState.BUY);
-            }
             if (game.State == GameState.INVENTORY)
             {
                 FrmInventory frmInventory = new FrmInventory();
                 frmInventory.Show();
+            }
+            else if (character.pos.row == 5 && character.pos.col == 9)
+            {
+                game.ChangeState(GameState.BUY);
             }
             if(game.State == GameState.BUY)
             {

@@ -42,8 +42,8 @@ namespace GenericRPG
             tipMap[0] = picInv0Tip;
             tipMap[1] = picInv1Tip;
             tipMap[2] = picInv2Tip;
-            tipMap[3] = toolTip2;
-            tipMap[4] = toolTip3;
+            tipMap[3] = picInv3Tip;
+            tipMap[4] = picInv4Tip;
             lblWeapon.Text = weapon.name.ToString();
             picWeapon.BackgroundImageLayout = ImageLayout.Stretch;
             picWeapon.BackgroundImage = imgList[weapon.wID];

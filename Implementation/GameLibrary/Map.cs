@@ -152,7 +152,7 @@ namespace GameLibrary {
         return false;
       }
       if (rand.NextDouble() < encounterChance) {
-        encounterChance = 0;
+        encounterChance = 0.15;
         Game.GetGame().ChangeState(GameState.FIGHTING);
       }
       else {

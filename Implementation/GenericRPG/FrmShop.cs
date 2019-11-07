@@ -41,6 +41,35 @@ namespace GenericRPG
             coinBox.BackgroundImageLayout = ImageLayout.Stretch;
             coinBox.BackgroundImage = Resources.coin;
             lblCharGb.Text = Math.Ceiling(character.Gb).ToString();
+            invMap[0] = picInv0;
+            invMap[1] = picInv1;
+            invMap[2] = picInv2;
+            invMap[3] = picInv3;
+            invMap[4] = picInv4;
+            tipMap[0] = picInv0Tip;
+            tipMap[1] = picInv1Tip;
+            tipMap[2] = picInv2Tip;
+            tipMap[3] = picInv3Tip;
+            tipMap[4] = picInv4Tip;
+            if(invMap[0].BackgroundImage == null)
+                addItems(4);
+        }
+
+        public void addItems(int j)
+        {
+            Item newItem;
+            int iter = 0;
+            Random rand = new Random();
+            int i = 0;
+            while (i < j)
+            {
+                iter = rand.Next(1,5);
+                newItem = new Item(iter);
+                invMap[i].BackgroundImageLayout = ImageLayout.Stretch;
+                invMap[i].BackgroundImage = imgList[iter];
+                tipMap[i].SetToolTip(invMap[i], newItem.descList[iter]);
+                i++;
+            }
         }
 
         private void closeShop()
