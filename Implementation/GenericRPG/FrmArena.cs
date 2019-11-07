@@ -90,6 +90,32 @@ namespace GenericRPG
             lblPlayerHealth.Text = Math.Round(character.Health).ToString();
             lblEnemyHealth.Text = Math.Round(enemy.Health).ToString();
         }
+        public void SimAtk(Mortal Attacker, Mortal Reciever)
+        {           
+            MakeSoundEffect();
+            _counter = 0;
+            tmrAnimation.Enabled = true;
+            tmrAnimation.Start();
+            float prevEnemyHealth = enemy.Health;
+            Attacker.SimpleAttack(Reciever, roll.Weapon);
+            float enemyDamage = (float)Math.Round(prevEnemyHealth - enemy.Health);
+            lblEnemyDamage.Text = enemyDamage.ToString();
+            lblEnemyDamage.Visible = true;
+            tmrEnemyDamage.Enabled = true;
+            if (enemy.Health <= 0)
+            {
+                float X = enemy.XpDropped;
+                character.GainXP(X);
+                roll.GainXP(X);
+                rush.GainXP(X);
+                character.GainGb(enemy.GbDropped);
+                lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp and" + Math.Round(enemy.GbDropped) + "gb!";
+                lblEndFightMessage.Visible = true;
+                Refresh();
+                Thread.Sleep(1200);
+                EndFight();
+            }
+        }
         private void btnSimpleAttack_Click(object sender, EventArgs e)
         {
             MakeSoundEffect();
@@ -168,50 +194,9 @@ namespace GenericRPG
                 else
                 {
                     UpdateStats();
-                    MakeSoundEffect();
-                    _counter = 0;
-                    tmrAnimation.Enabled = true;
-                    tmrAnimation.Start();
-                    float prevrEnemyHealth = enemy.Health;
-                    roll.SimpleAttack(enemy,roll.Weapon);
-                    float enemyrDamage = (float)Math.Round(prevrEnemyHealth - enemy.Health);
-                    lblEnemyDamage.Text = enemyDamage.ToString();
-                    lblEnemyDamage.Visible = true;
-                    tmrEnemyDamage.Enabled = true;
-                    if (enemy.Health <= 0)
-                    {
-                        float X = enemy.XpDropped;
-                        character.GainGb(enemy.GbDropped);
-                        character.GainXP(X);
-                        roll.GainXP(X);
-                        rush.GainXP(X);
-                        lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!" + Math.Round(enemy.GbDropped) + "gb!";
-                        lblEndFightMessage.Visible = true;
-                        Refresh();
-                        Thread.Sleep(1200);
-                        EndFight();
-                        if (character.ShouldLevelUp)
-                        {
-                            FrmLevelUp frmLevelUp = new FrmLevelUp();
-                            frmLevelUp.Show();
-
-                            if(character.Level ==2)
-                            {
-                                FrmClass frmClass = new FrmClass();
-                                frmClass.Show();
-                            }
-                                else
-                                    {
-                                        LevelUpAddStat frmStat = new LevelUpAddStat();
-                                        frmStat.Show();
-                                    }
-                        }
-
-                        
-                    }
-                    else
-                    {
-                        UpdateStats();
+                    SimAtk(roll, enemy);
+                    SimAtk(rush, enemy);
+                       /* UpdateStats();
                         MakeSoundEffect();
                         _counter = 0;
                         tmrAnimation.Enabled = true;
@@ -253,17 +238,14 @@ namespace GenericRPG
                                     LevelUpAddStat frmStat = new LevelUpAddStat();
                                     frmStat.Show();
                                 }
-                            }
-                            else
-                            {
+                            }*/
+                           
                                 UpdateStats();
-                            }
-
-                        }
-                    }
+                                                  
                 }
             }
         }
+        
 
         private void btnMagicAttack_Click(object sender, EventArgs e)
         {
@@ -439,9 +421,11 @@ namespace GenericRPG
         private void tmrPlayerDamage_Tick(object sender, EventArgs e)
         {
             lblPlayerDamage.Top -= 2;
+            
             if (lblPlayerDamage.Top < 10)
             {
                 lblPlayerDamage.Visible = false;
+                lblEnemyDamage.Visible = false;
                 tmrPlayerDamage.Enabled = false;
                 lblPlayerDamage.Top = 52;
             }
@@ -463,6 +447,8 @@ namespace GenericRPG
             label15.Top -= 2;
             if (label15.Top < 10)
             {
+                lblPlayerDamage.Visible = false;
+                lblEnemyDamage.Visible = false;
                 label15.Visible = false;
                 tmrEnemyDamage.Enabled = false;
                 label15.Top = 52;
