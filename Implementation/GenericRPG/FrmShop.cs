@@ -16,7 +16,6 @@ namespace GenericRPG
     {
         private Game game;
         private Character character;
-        private Item[] invList = new Item[25];
         private PictureBox[] invMap = new PictureBox[25];
         private ToolTip[] tipMap = new ToolTip[25];
         public Dictionary<int, Bitmap> imgList = new Dictionary<int, Bitmap>()
@@ -26,12 +25,12 @@ namespace GenericRPG
             {3, Resources.beamKnife},
             {4, Resources.beamAxe}
         };
-        public Dictionary<int, Item> iList = new Dictionary<int, Item>()
+        public Dictionary<int, string> priceList = new Dictionary<int, string>()
         {
-            {1, new Item(1)},
-            {2, new Item(2)},
-            {3, new Item(3)},
-            {4, new Item(4)}
+            {1, "Price: 250 Gb"},
+            {2, "Price: 100 Gb"},
+            {3, "Price: 500 Gb"},
+            {4, "Price: 600 Gb"}
         };
 
         public FrmShop()
@@ -52,13 +51,8 @@ namespace GenericRPG
             tipMap[2] = picInv2Tip;
             tipMap[3] = picInv3Tip;
             tipMap[4] = picInv4Tip;
-            picInv0.MouseClick += itemMouseClick;
-            picInv1.MouseClick += itemMouseClick;
-            picInv2.MouseClick += itemMouseClick;
-            picInv3.MouseClick += itemMouseClick;
-            picInv4.MouseClick += itemMouseClick;
             if(invMap[0].BackgroundImage == null)
-                addItems(5);
+                addItems(4);
         }
 
         public void addItems(int j)
@@ -71,7 +65,6 @@ namespace GenericRPG
             {
                 iter = rand.Next(1,5);
                 newItem = new Item(iter);
-                invList[i] = newItem;
                 invMap[i].BackgroundImageLayout = ImageLayout.Stretch;
                 invMap[i].BackgroundImage = imgList[iter];
                 tipMap[i].SetToolTip(invMap[i], newItem.descList[iter]);
@@ -84,18 +77,7 @@ namespace GenericRPG
             game.ChangeState(GameState.ON_MAP);
             Close();
         }
-        private void itemMouseClick(object sender, MouseEventArgs e)
-        {
-            PictureBox pic = (sender as PictureBox);//pic is the Name of the PictureBox that is clicked
-            switch (e.Button)
-            {
-                case MouseButtons.Left:
-                    {
-                        break;
-                    }
-                    break;
-            }
-        }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             closeShop();
