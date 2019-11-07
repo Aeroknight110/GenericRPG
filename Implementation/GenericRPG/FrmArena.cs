@@ -264,12 +264,12 @@ namespace GenericRPG
 
         private void btnMagicAttack_Click(object sender, EventArgs e)
         {
-            
-             if (Game.GetGame().Character.Mana >= 5)
+            float prevEnemyHealth = enemy.Health;
+            if (Game.GetGame().Character.Mana >= 5)
             {
                 //Form2 f2 = new Form2();
                 //f2.Show();
-                float prevEnemyHealth = enemy.Health;
+                
                 character.MagicAttack(enemy);
 
                 float enemyDamage = (float)Math.Round(prevEnemyHealth - enemy.Health);
@@ -338,7 +338,7 @@ namespace GenericRPG
             }
             else
             {
-                float prevEnemyHealth = enemy.Health;
+                prevEnemyHealth = enemy.Health;
                 character.SimpleAttack(enemy);
                 float enemyDamage = (float)Math.Round(prevEnemyHealth - enemy.Health);
                 lblEnemyDamage.Text = enemyDamage.ToString();
@@ -403,6 +403,15 @@ namespace GenericRPG
 
                 }
             }
+
+
+            rush.SimpleAttack(enemy, rush.Weapon);
+            float partyDealtEnemycDamage = (float)Math.Round(prevEnemyHealth - enemy.Health);
+            //lblEnemyDamage.Text = enemyDamage.ToString();
+            //lblEnemyDamage.Visible = true;
+            label15.Text = partyDealtEnemycDamage.ToString();
+            label15.Visible = true;
+            timer2.Enabled = true;
         }
 
 
