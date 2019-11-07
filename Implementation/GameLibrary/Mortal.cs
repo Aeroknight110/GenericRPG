@@ -20,16 +20,18 @@ namespace GameLibrary {
     private const float SIMPLEATTACK_RANDOM_AMT = 0.25f;
     #endregion
 
-    public string Name { get; protected set; }
-    public int Level { get; protected set; }
-    public float MaxHealth { get; protected set; }
-    public float Health { get; protected set; }
-    public float MaxMana { get; protected set; }
-    public float Mana { get; protected set; }
-    public float Str { get; protected set; }
-    public float Def { get; protected set; }
-    public float Luck { get; protected set; }
-    public float Speed { get; protected set; }
+    public string Name { get; set; }
+    public int Level { get; set; }
+        public float MaxHealth { get; set; }
+    public float Health { get; set; }
+    public float MaxMana { get; set; }
+    public float Mana { get; set; }
+    public float Str { get; set; }
+    public float Def { get; set; }
+    public float Luck { get; set; }
+    public float Speed { get; set; }
+
+
 
     private Random rand;
 
@@ -229,13 +231,15 @@ namespace GameLibrary {
                 Console.WriteLine("YOU DONT HAVE ENOUGH MANA");
             }
 
-
-
+          
 
 
 
         }
-
+        public void Heal()
+        {
+            Health += 15;
+        }
 
 
     }
