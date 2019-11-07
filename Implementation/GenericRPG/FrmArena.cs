@@ -438,9 +438,11 @@ namespace GenericRPG
         private void tmrPlayerDamage_Tick(object sender, EventArgs e)
         {
             lblPlayerDamage.Top -= 2;
+            
             if (lblPlayerDamage.Top < 10)
             {
                 lblPlayerDamage.Visible = false;
+                lblEnemyDamage.Visible = false;
                 tmrPlayerDamage.Enabled = false;
                 lblPlayerDamage.Top = 52;
             }
@@ -462,6 +464,8 @@ namespace GenericRPG
             label15.Top -= 2;
             if (label15.Top < 10)
             {
+                lblPlayerDamage.Visible = false;
+                lblEnemyDamage.Visible = false;
                 label15.Visible = false;
                 tmrEnemyDamage.Enabled = false;
                 label15.Top = 52;
