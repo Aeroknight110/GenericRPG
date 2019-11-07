@@ -61,6 +61,7 @@ namespace GenericRPG
             int iter = 0;
             Random rand = new Random();
             int i = 0;
+            int temp;
             while (i < j)
             {
                 iter = rand.Next(1,5);
