@@ -10,12 +10,12 @@ namespace GameLibrary {
     private const float INIT_SPEED = 2;
     private const float INIT_MANA = 40;
 
-    private const float LVLINC_HEALTH = 10;
-    private const float LVLINC_STR = 1;
-    private const float LVLINC_DEF = 1;
-    private const float LVLINC_LUCK = 1;
-    private const float LVLINC_SPEED = 2;
-    private const float LVLINC_MANA = 5;
+    public const float LVLINC_HEALTH = 10;
+    public const float LVLINC_STR = 1;
+    public const float LVLINC_DEF = 1;
+    public const float LVLINC_LUCK = 1;
+    public const float LVLINC_SPEED = 2;
+    public const float LVLINC_MANA = 5;
 
     private const float SIMPLEATTACK_RANDOM_AMT = 0.25f;
     #endregion
@@ -136,7 +136,7 @@ namespace GameLibrary {
                         break;
                 }
                 baseDamage = Math.Abs(Str * strCoeffient - receiver.Def);
-                
+             
                 if(Game.GetGame().Character.ClassType == classSystem.ARCHER)
                 {
                     

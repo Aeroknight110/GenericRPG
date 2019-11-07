@@ -127,11 +127,16 @@ namespace GenericRPG
 
 
                     }
+                    else
+                    {
+                        LevelUpAddStat frmStat = new LevelUpAddStat();
+                        frmStat.Show();
+                    }
 
                 }
             }
             else{
-                Console.WriteLine(character.undead);
+                 
                 float prevPlayerHealth = character.Health;
                 enemy.SimpleAttack(character);
                 float playerDamage = (float)Math.Round(prevPlayerHealth - character.Health);
@@ -140,7 +145,7 @@ namespace GenericRPG
                 tmrPlayerDamage.Enabled = true;
                 if (character.Health <= 0)
                 {
-                    Console.WriteLine(character.undead);
+                     
                     if (character.undead)
                     {
                         UpdateStats();
@@ -186,7 +191,20 @@ namespace GenericRPG
                         {
                             FrmLevelUp frmLevelUp = new FrmLevelUp();
                             frmLevelUp.Show();
+
+                            if(character.Level ==2)
+                            {
+                                FrmClass frmClass = new FrmClass();
+                                frmClass.Show();
+                            }
+                                else
+                                    {
+                                        LevelUpAddStat frmStat = new LevelUpAddStat();
+                                        frmStat.Show();
+                                    }
                         }
+
+                        
                     }
                     else
                     {
@@ -218,6 +236,16 @@ namespace GenericRPG
                             {
                                 FrmLevelUp frmLevelUp = new FrmLevelUp();
                                 frmLevelUp.Show();
+                                if (character.Level == 2)
+                                {
+                                    FrmClass frmClass = new FrmClass();
+                                    frmClass.Show();
+                                }
+                                else
+                                {
+                                    LevelUpAddStat frmStat = new LevelUpAddStat();
+                                    frmStat.Show();
+                                }
                             }
                             else
                             {
@@ -256,7 +284,18 @@ namespace GenericRPG
                     {
                         FrmLevelUp frmLevelUp = new FrmLevelUp();
                         frmLevelUp.Show();
+                        if (character.Level == 2)
+                        {
+                            FrmClass frmClass = new FrmClass();
+                            frmClass.Show();
+                        }
+                        else
+                        {
+                            LevelUpAddStat frmStat = new LevelUpAddStat();
+                            frmStat.Show();
+                        }
                     }
+                    
                 }
                 
                 else
@@ -321,6 +360,11 @@ namespace GenericRPG
                         {
                             FrmClass frmClass = new FrmClass();
                             frmClass.Show();
+                        }
+                        else
+                        {
+                            LevelUpAddStat frmStat = new LevelUpAddStat();
+                            frmStat.Show();
                         }
                     }
                 }

@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LevelUpAddStat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LevelUpAddStat.Designer.cs">
+      <DependentUpon>LevelUpAddStat.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmClass.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +95,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="LevelUpAddStat.resx">
+      <DependentUpon>LevelUpAddStat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmArena.resx">
       <DependentUpon>FrmArena.cs</DependentUpon>
     </EmbeddedResource>
