@@ -10,11 +10,13 @@ namespace GameLibrary {
     private const float MAX_GB_DROP = 30;
     private const float WEAKEN_MIN = 1.25f;
     private const float WEAKEN_MAX = 1.85f;
+        private const float MAX_PT_DROP = 1;
+        private const float MIN_PT_DROP = 0;
 
     public Bitmap Img { get; private set; }
     public float XpDropped { get; private set; }
     public float GbDropped { get; private set; }
-
+    public float PtDropped { get; private set; }
     private static readonly Random rand = new Random();
     private static readonly List<string> names = new List<string>() {
       "Wily", "Bob", "Dr. Light", "WallCrusher"
@@ -32,6 +34,7 @@ namespace GameLibrary {
 
       XpDropped = (float)rand.NextDouble() * (MAX_XP_DROP - MIN_XP_DROP) + MIN_XP_DROP;
       GbDropped = (float)rand.NextDouble() * (MAX_GB_DROP - MIN_GB_DROP) + MIN_GB_DROP;
+      PtDropped = (float)rand.NextDouble() * (MAX_PT_DROP - MIN_PT_DROP) + MIN_PT_DROP;
     }
 
     public static string RandName() {

@@ -31,6 +31,8 @@ namespace GameLibrary {
     public float Luck { get; protected set; }
     public float Speed { get; protected set; }
 
+
+
     private Random rand;
 
     public Mortal(string name, int level) {
@@ -229,13 +231,15 @@ namespace GameLibrary {
                 Console.WriteLine("YOU DONT HAVE ENOUGH MANA");
             }
 
-
-
+          
 
 
 
         }
-
+        public void Heal()
+        {
+            Health += 15;
+        }
 
 
     }

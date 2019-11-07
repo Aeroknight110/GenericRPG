@@ -66,6 +66,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label12 = new System.Windows.Forms.Label();
+            this.btnHeal = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picCharacter)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -580,12 +581,25 @@
             this.label12.TabIndex = 18;
             this.label12.Text = "label12";
             // 
+            // btnHeal
+            // 
+            this.btnHeal.BackColor = System.Drawing.Color.Lime;
+            this.btnHeal.ForeColor = System.Drawing.Color.Black;
+            this.btnHeal.Location = new System.Drawing.Point(408, 362);
+            this.btnHeal.Name = "btnHeal";
+            this.btnHeal.Size = new System.Drawing.Size(112, 46);
+            this.btnHeal.TabIndex = 19;
+            this.btnHeal.Text = "Heal";
+            this.btnHeal.UseVisualStyleBackColor = false;
+            this.btnHeal.Click += new System.EventHandler(this.BtnHeal_Click);
+            // 
             // FrmArena
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(941, 578);
+            this.Controls.Add(this.btnHeal);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.lblEndFightMessage);
@@ -653,5 +667,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label lblPlayerGb;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button btnHeal;
     }
 }

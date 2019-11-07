@@ -79,6 +79,7 @@ namespace GenericRPG
             lblPlayerXp.Text = Math.Round(character.XP).ToString();
             lblPlayerGb.Text = Math.Round(character.Gb).ToString();
 
+
             lblEnemyLevel.Text = enemy.Level.ToString();
             lblEnemyHealth.Text = Math.Round(enemy.Health).ToString();
             lblEnemyStr.Text = Math.Round(enemy.Str).ToString();
@@ -403,5 +404,10 @@ namespace GenericRPG
             }
         }
 
+        private void BtnHeal_Click(object sender, EventArgs e)
+        {
+           
+            
+        }
     }
 }

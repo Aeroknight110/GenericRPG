@@ -34,6 +34,8 @@ namespace GameLibrary {
     public float XP { get; private set; }
     //add gold drop
     public float Gb {get; private set; }
+    //add portion 
+    public float Pt { get; private set; }
     public bool ShouldLevelUp { get; private set; }
         public classSystem ClassType { get; set; }
     public Weapon weapon;
@@ -64,8 +66,12 @@ namespace GameLibrary {
     public void GainGb(float amount){
         Gb += amount;
 
-
     }
+
+    public void GainPt(float amount)
+        {
+            Pt += amount;
+        }
 
    public override void LevelUp()
    {
@@ -84,6 +90,7 @@ namespace GameLibrary {
     public override void ResetStats() {
       base.ResetStats();
       XP = 0;
+      Gb = 0;
     }
 
     public void Move(MoveDir dir) {
