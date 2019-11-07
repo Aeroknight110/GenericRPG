@@ -12,6 +12,7 @@ namespace GameLibrary
         public string name;
         public int ID;
         public string Img;
+        public int price;
         public Dictionary<int, string> nameList = new Dictionary<int, string>()
         {
             {1, "Small Shooter"},
@@ -30,10 +31,19 @@ namespace GameLibrary
             {5, "Only true gentle-people can adorn this hat." }
         };
 
-        
+        public Dictionary<int, int> priceList = new Dictionary<int, int>()
+        {
+            {1, 250},
+            {2, 100},
+            {3, 500},
+            {4, 600},
+            {5, 10000}
+        };
+
         public Item(int id)
         {
             name = nameList[id];
+            price = priceList[id];
             ID = id;
         }
     }
