@@ -12,8 +12,8 @@ namespace GenericRPG
     {
         private Game game;
         private Character character;
-        private PartyRU rush;
-        private PartyRL roll;
+        private Roll roll;
+        private Rush rush;
         private Enemy enemy;
         private Random rand;
 
@@ -50,6 +50,7 @@ namespace GenericRPG
             character = game.Character;
             roll = game.Roll;
             rush = game.Rush;
+
             enemy = new Enemy(rand.Next(character.Level + 1), Resources.enemyRedStanding);
             // stats
             UpdateStats();
@@ -271,7 +272,7 @@ namespace GenericRPG
                         UpdateStats();
                         tmrAnimation.Start();
                         float prevrEnemyHealth = enemy.Health;
-                        //Roll.SimpleAttack(enemy);
+                        roll.SimpleAttack(enemy);
                         float enemyrDamage = (float)Math.Round(prevrEnemyHealth - enemy.Health);
                         lblEnemyDamage.Text = enemyDamage.ToString();
                         lblEnemyDamage.Visible = true;
@@ -280,8 +281,8 @@ namespace GenericRPG
                         {
                             float X = enemy.XpDropped;
                             character.GainXP(X);
-                            //Roll.GainXP(X);
-                            //Rush.GainXP(X);
+                            roll.GainXP(X);
+                            rush.GainXP(X);
                             lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!";
                             lblEndFightMessage.Visible = true;
                             Refresh();
@@ -298,7 +299,7 @@ namespace GenericRPG
                             UpdateStats();
                             tmrAnimation.Start();
                             float prevcEnemyHealth = enemy.Health;
-                            //Rush.SimpleAttack(enemy);
+                            rush.SimpleAttack(enemy, rush.Weapon);
                             float enemycDamage = (float)Math.Round(prevcEnemyHealth - enemy.Health);
                             lblEnemyDamage.Text = enemyDamage.ToString();
                             lblEnemyDamage.Visible = true;
@@ -307,8 +308,8 @@ namespace GenericRPG
                             {
                                 float X = enemy.XpDropped;
                                 character.GainXP(X);
-                                //Roll.GainXP(X);
-                                //Rush.GainXP(X);
+                                roll.GainXP(X);
+                                rush.GainXP(X);
                                 lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!";
                                 lblEndFightMessage.Visible = true;
                                 Refresh();

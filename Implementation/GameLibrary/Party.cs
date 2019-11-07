@@ -1,37 +1,65 @@
-using GameLibrary;
-using System.Windows.Forms;
-public class PartyRL : Roll {
+using System;
+using System.Collections.Generic;
+using System.Drawing;
 
-    public PictureBox Pic { get; private set; }
+namespace GameLibrary
+{
+    public class Roll : Mortal
+    {
+        public Bitmap Img { get; private set; }
+        public Weapon Weapon { get; private set; }
+        public float XP { get; private set; }
+        public bool ShouldLevelUp { get; private set; }
+        public void GainXP(float amount)
+        {
+            XP += amount;
 
-    //public PictureBox Pic { get; private set; }
-    public float XP { get; private set; }
-    public bool ShouldLevelUpRL { get; private set; }
-    public void GainXP(float amount) {
-      XP += amount/2;
-      if ((int)XP / 75 >= Level) {
-        ShouldLevelUpRL = true;
-      }
-    }    
-    public override void LevelUp() {
-      base.LevelUp();
-      ShouldLevelUpRL = false;
+            // every 100 experience points you gain a level
+            if ((int)XP / 100 >= Level)
+            {
+                ShouldLevelUp = true;
+            }
         }
-    
-    }
 
-public class PartyRU : Rush {
-    public PictureBox Pic { get; private set; }
-    public float XP { get; private set; }
-    public bool ShouldLevelUpRU { get; private set; }
-    public void GainXP(float amount) {
-         XP += amount/2;
-         if ((int)XP / 75 >= Level) {
-            ShouldLevelUpRU = true;
-         }
+        public override void LevelUp()
+        {
+            base.LevelUp();
+            ShouldLevelUp = false;
+        }
+        public Roll(Bitmap img) : base("Roll", 1)
+        {
+           Img = img;
+           Weapon = new Weapon(1);
+        }
+        
     }
-    public override void LevelUp() {
-      base.LevelUp();
-      ShouldLevelUpRU = false;
-    }        
+    public class Rush : Mortal
+    {
+        public Bitmap Img { get; private set; }
+        public Weapon Weapon { get; private set; }
+        public float XP { get; private set; }
+        public bool ShouldLevelUp { get; private set; }
+        public void GainXP(float amount)
+        {
+            XP += amount;
+
+            // every 100 experience points you gain a level
+            if ((int)XP / 100 >= Level)
+            {
+                ShouldLevelUp = true;
+            }
+        }
+
+        public override void LevelUp()
+        {
+            base.LevelUp();
+            ShouldLevelUp = false;
+        }
+        public Rush(Bitmap img) : base("Rush", 1)
+        {
+            Img = img;
+            Weapon = new Weapon(1);
+        }
+
+    }
 }
