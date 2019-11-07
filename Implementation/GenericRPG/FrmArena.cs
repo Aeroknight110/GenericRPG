@@ -232,11 +232,8 @@ namespace GenericRPG
 
         private void btnMagicAttack_Click(object sender, EventArgs e)
         {
-            if (character.undead)
-            {
-                character.Health = character.MaxHealth;
-            }
-            else if (Game.GetGame().Character.Mana >= 5)
+            
+             if (Game.GetGame().Character.Mana >= 5)
             {
                 //Form2 f2 = new Form2();
                 //f2.Show();
@@ -272,15 +269,23 @@ namespace GenericRPG
                     tmrPlayerDamage.Enabled = true;
                     if (character.Health <= 0)
                     {
-                        UpdateStats();
-                        game.ChangeState(GameState.DEAD);
-                        lblEndFightMessage.Text = "You Were Defeated!";
-                        lblEndFightMessage.Visible = true;
-                        Refresh();
-                        Thread.Sleep(1200);
-                        EndFight();
-                        FrmGameOver frmGameOver = new FrmGameOver();
-                        frmGameOver.Show();
+                        if (character.undead)
+                        {
+                            UpdateStats();
+                            character.Health = character.MaxHealth;
+                        }
+                        else
+                        {
+                            UpdateStats();
+                            game.ChangeState(GameState.DEAD);
+                            lblEndFightMessage.Text = "You Were Defeated!";
+                            lblEndFightMessage.Visible = true;
+                            Refresh();
+                            Thread.Sleep(1200);
+                            EndFight();
+                            FrmGameOver frmGameOver = new FrmGameOver();
+                            frmGameOver.Show();
+                        }
                     }
                     else
                     {

@@ -24,7 +24,7 @@ namespace GenericRPG
 
             Game.GetGame().Character.MaxHealth= 100;
             Game.GetGame().Character.Str = 20;
-            Game.GetGame().Character.Def = 5;
+            Game.GetGame().Character.Def = 4;
             Game.GetGame().Character.Luck = 0;
             Game.GetGame().Character.MaxMana = 10;
         }
@@ -39,7 +39,7 @@ namespace GenericRPG
             Game.GetGame().Character.ClassType = classSystem.MAGICIAN;
             Game.GetGame().Character.MaxHealth = 50;
             Game.GetGame().Character.Str = 5;
-            Game.GetGame().Character.Def = 3;
+            Game.GetGame().Character.Def = 1;
             Game.GetGame().Character.Luck = 5;
             Game.GetGame().Character.MaxMana = 60;
         }
@@ -49,7 +49,7 @@ namespace GenericRPG
             Game.GetGame().Character.ClassType = classSystem.ARCHER;
             Game.GetGame().Character.MaxHealth = 50;
             Game.GetGame().Character.Str = 15;
-            Game.GetGame().Character.Def = 3;
+            Game.GetGame().Character.Def = 2;
             Game.GetGame().Character.Luck = 10;
             Game.GetGame().Character.MaxMana = 30;
         }
