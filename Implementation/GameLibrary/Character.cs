@@ -29,7 +29,8 @@ namespace GameLibrary {
     /// </summary>
     public class Character : Mortal {
     public PictureBox Pic { get; private set; }
-    private Position pos;
+    public Inventory charInv;
+    public Position pos;
         public bool undead { get; set; }
     private Map map;
     public float XP { get; private set; }

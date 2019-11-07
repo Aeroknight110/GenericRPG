@@ -45,6 +45,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmCust.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCust.Designer.cs">
+      <DependentUpon>FrmCust.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmShop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShop.Designer.cs">
+      <DependentUpon>FrmShop.cs</DependentUpon>
+    </Compile>
     <Compile Include="LevelUpAddStat.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +107,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmCust.resx">
+      <DependentUpon>FrmCust.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmShop.resx">
+      <DependentUpon>FrmShop.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LevelUpAddStat.resx">
       <DependentUpon>LevelUpAddStat.cs</DependentUpon>
     </EmbeddedResource>
@@ -163,6 +181,7 @@
     <None Include="Resources\beamKnife.png" />
     <None Include="Resources\beamAxe.png" />
     <Content Include="Resources\characterStanding.png" />
+    <None Include="Resources\coin.png" />
     <Content Include="Resources\Edit\character-levelup-animation.fw.png" />
     <Content Include="Resources\Edit\gameover.fw.png" />
     <Content Include="Resources\Edit\vortex.fw.png" />
