@@ -3,33 +3,33 @@
 namespace GameLibrary {
   public class Mortal {
     #region Constants
-    private const float INIT_HEALTH = 100;
+    private const float INIT_HEALTH = 50;
     private const float INIT_STR = 10;
-    private const float INIT_DEF = 5;
+    private const float INIT_DEF = 2;
     private const float INIT_LUCK = 2;
     private const float INIT_SPEED = 2;
     private const float INIT_MANA = 40;
 
-    private const float LVLINC_HEALTH = 20;
-    private const float LVLINC_STR = 3;
-    private const float LVLINC_DEF = 2;
-    private const float LVLINC_LUCK = 1;
-    private const float LVLINC_SPEED = 2;
-    private const float LVLINC_MANA = 10;
+    public const float LVLINC_HEALTH = 10;
+    public const float LVLINC_STR = 1;
+    public const float LVLINC_DEF = 1;
+    public const float LVLINC_LUCK = 1;
+    public const float LVLINC_SPEED = 2;
+    public const float LVLINC_MANA = 5;
 
     private const float SIMPLEATTACK_RANDOM_AMT = 0.25f;
     #endregion
 
-    public string Name { get; protected set; }
-    public int Level { get; protected set; }
-    public float MaxHealth { get; protected set; }
-    public float Health { get; protected set; }
-    public float MaxMana { get; protected set; }
-    public float Mana { get; protected set; }
-    public float Str { get; protected set; }
-    public float Def { get; protected set; }
-    public float Luck { get; protected set; }
-    public float Speed { get; protected set; }
+    public string Name { get; set; }
+    public int Level { get; set; }
+        public float MaxHealth { get; set; }
+    public float Health { get; set; }
+    public float MaxMana { get; set; }
+    public float Mana { get; set; }
+    public float Str { get; set; }
+    public float Def { get; set; }
+    public float Luck { get; set; }
+    public float Speed { get; set; }
 
 
 
@@ -136,7 +136,7 @@ namespace GameLibrary {
                         break;
                 }
                 baseDamage = Math.Abs(Str * strCoeffient - receiver.Def);
-                
+             
                 if(Game.GetGame().Character.ClassType == classSystem.ARCHER)
                 {
                     
@@ -191,23 +191,23 @@ namespace GameLibrary {
                 {
                     case classSystem.SCRUM:
                         strCoeffient = 0.5f;
-                        ManaCoeffient = 0.7f;
+                        ManaCoeffient = 0.3f;
 
 
                         break;
 
                     case classSystem.WARRIOR:
                         strCoeffient = 0.8f;
-                        ManaCoeffient = 0.7f;
+                        ManaCoeffient = 0.3f;
                         break;
                     case classSystem.MAGICIAN:
                         Mana = Mana - 5;
                         strCoeffient = 0.5f;
-                        ManaCoeffient = 1.5f;
+                        ManaCoeffient = 1.0f;
                         break;
                     case classSystem.ARCHER:
-                        strCoeffient = 0.8f;
-                        ManaCoeffient = 0.8f;
+                        strCoeffient = 0.5f;
+                        ManaCoeffient = 0.5f;
 
 
                         break;
