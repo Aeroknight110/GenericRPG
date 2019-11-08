@@ -120,6 +120,7 @@ namespace GenericRPG
                     rush.GainXP(X);
                     character.GainGb(enemy.GbDropped);
                     character.GainPt(enemy.PtDropped);
+                   
                     MidFightlabel.Text += " Damage dealt by party = " + Math.Round(PartyDamage);
                     MidFightlabel.Visible = true;
                     lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp and" + Math.Round(enemy.GbDropped) + " gb and" + Math.Round(enemy.PtDropped) + " Pt!";
@@ -220,6 +221,11 @@ namespace GenericRPG
                 rush.GainXP(X);
                 character.GainGb(enemy.GbDropped);
                 character.GainPt(enemy.PtDropped);
+                if(character.Pt !=0)
+                {
+                    character.charInv.addItem(2);
+                    
+                }
                 lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp and" + Math.Round(enemy.GbDropped) + " gb and" + Math.Round(enemy.PtDropped) + "Pt!";
                 lblEndFightMessage.Visible = true;
                 Refresh();
@@ -234,6 +240,7 @@ namespace GenericRPG
                 float prevPlayerHealth = character.Health;
                 enemy.SimpleAttack(character);
                 float playerDamage = (float)Math.Round(prevPlayerHealth - character.Health);
+                lblPlayerDamage.ForeColor = Color.Red;
                 lblPlayerDamage.Text = playerDamage.ToString();
                 lblPlayerDamage.Visible = true;
                 tmrPlayerDamage.Enabled = true;
@@ -311,6 +318,7 @@ namespace GenericRPG
                     float prevPlayerHealth = character.Health;
                     enemy.SimpleAttack(character);
                     float playerDamage = (float)Math.Round(prevPlayerHealth - character.Health);
+                    lblPlayerDamage.ForeColor = Color.Red;
                     lblPlayerDamage.Text = playerDamage.ToString();
                     lblPlayerDamage.Visible = true;
                     tmrPlayerDamage.Enabled = true;
@@ -454,15 +462,18 @@ namespace GenericRPG
                     return;
                 }
                 else{
-                float playerHeal = 15;
-                character.Heal(character);
-                lblPlayerDamage.ForeColor = Color.Green;
-                lblPlayerDamage.Text = playerHeal.ToString();
-                lblPlayerDamage.Visible = true;
-                lblPlayerDamage.Enabled = true;
-                character.UsePt(1);
-                UpdateStats();
-                    }
+                    float playerHeal = 15;
+                    character.Heal(character);
+                    
+                    lblPlayerDamage.ForeColor = Color.Green;
+                    lblPlayerDamage.Text = playerHeal.ToString();
+                    lblPlayerDamage.Visible = true;
+                    lblPlayerDamage.Enabled = true;
+                    character.UsePt(1);
+                    UpdateStats();
+                    
+                
+                }
             }
 
         }
@@ -471,5 +482,6 @@ namespace GenericRPG
         {
 
         }
+     
     }
 }
