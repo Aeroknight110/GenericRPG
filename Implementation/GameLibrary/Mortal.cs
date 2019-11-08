@@ -22,7 +22,7 @@ namespace GameLibrary {
 
     public string Name { get; set; }
     public int Level { get; set; }
-        public float MaxHealth { get; set; }
+    public float MaxHealth { get; set; }
     public float Health { get; set; }
     public float MaxMana { get; set; }
     public float Mana { get; set; }

@@ -84,6 +84,7 @@ namespace GenericRPG
             lblPlayerMana.Text = Math.Round(character.Mana).ToString();
             lblPlayerXp.Text = Math.Round(character.XP).ToString();
             lblPlayerGb.Text = Math.Round(character.Gb).ToString();
+            lblPlayerPt.Text = Math.Round(character.Pt).ToString();
 
 
             lblEnemyLevel.Text = enemy.Level.ToString();
@@ -139,7 +140,8 @@ namespace GenericRPG
             {
                 character.GainXP(enemy.XpDropped);
                 character.GainGb(enemy.GbDropped);
-                lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!" + Math.Round(enemy.GbDropped) + "gb!";
+                character.GainPt(enemy.PtDropped);
+                lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!" + Math.Round(enemy.GbDropped) + "gb" + Math.Round(enemy.PtDropped) + "Pt!";
                 lblEndFightMessage.Visible = true;
                 Refresh();
                 Thread.Sleep(1200);
@@ -213,7 +215,11 @@ namespace GenericRPG
                         character.GainXP(X);
                         roll.GainXP(X);
                         rush.GainXP(X);
-                        lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!";
+                        character.GainGb(enemy.GbDropped);
+                        character.GainPt(enemy.PtDropped);
+                        
+                      
+                        lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!" + Math.Round(enemy.GbDropped) + "gb" + Math.Round(enemy.PtDropped) + "Pt!";
                         lblEndFightMessage.Visible = true;
                         Refresh();
                         Thread.Sleep(1200);
@@ -261,7 +267,9 @@ namespace GenericRPG
                             character.GainXP(X);
                             roll.GainXP(X);
                             rush.GainXP(X);
-                            lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!";
+                            character.GainGb(enemy.GbDropped);
+                            character.GainPt(enemy.PtDropped);
+                            lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!" + Math.Round(enemy.GbDropped) + "gb" + Math.Round(enemy.PtDropped) + "Pt!";
                             lblEndFightMessage.Visible = true;
                             Refresh();
                             Thread.Sleep(1200);
@@ -313,7 +321,9 @@ namespace GenericRPG
                 if (enemy.Health <= 0)
                 {
                     character.GainXP(enemy.XpDropped);
-                    lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!";
+                    character.GainGb(enemy.GbDropped);
+                    character.GainPt(enemy.PtDropped);
+                    lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!" + Math.Round(enemy.GbDropped) + "gb" + Math.Round(enemy.PtDropped) + "Pt!";
                     lblEndFightMessage.Visible = true;
                     Refresh();
                     Thread.Sleep(1200);
@@ -384,7 +394,8 @@ namespace GenericRPG
                 {
                     character.GainXP(enemy.XpDropped);
                     character.GainGb(enemy.GbDropped);
-                    lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!" + Math.Round(enemy.GbDropped) + "gb!";
+                    character.GainPt(enemy.PtDropped);
+                    lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!" + Math.Round(enemy.GbDropped) + "gb" + Math.Round(enemy.PtDropped) + "Pt!";  
                     lblEndFightMessage.Visible = true;
                     Refresh();
                     Thread.Sleep(1200);
@@ -534,7 +545,25 @@ namespace GenericRPG
 
         private void BtnHeal_Click(object sender, EventArgs e)
         {
-
+            if(character.Pt>0)
+            {
+                float maxPlayerHealth = character.MaxHealth;
+                float prevPlayerHealth = character.Health;
+                if(prevPlayerHealth + 15 >= maxPlayerHealth)
+                {
+                    return;
+                }
+                else{
+                float playerHeal = 15;
+                character.Heal(character);
+                lblPlayerDamage.ForeColor = Color.Green;
+                lblPlayerDamage.Text = playerHeal.ToString();
+                lblPlayerDamage.Visible = true;
+                lblPlayerDamage.Enabled = true;
+                character.UsePt(1);
+                UpdateStats();
+                    }
+            }
 
         }
     }
