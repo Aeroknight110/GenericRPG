@@ -161,6 +161,7 @@ namespace GenericRPG
                         Refresh();
                         Thread.Sleep(1200);
                         EndFight();
+                        LevelUpcheck();
                     }
                 }
                 else
@@ -184,13 +185,13 @@ namespace GenericRPG
                 }
                 if (roll.ShouldLevelUp)
                 {
-                    FrmLevelUpRL frmLevelUprl = new FrmLevelUpRL();
+                    FrmLevelUpRoll frmLevelUprl = new FrmLevelUpRoll();
                     frmLevelUprl.Show();
 
                 }
                 if (rush.ShouldLevelUp)
                 {
-                    FrmLevelUpRu frmLevelUpru = new FrmLevelUpRu();
+                    FrmLevelUpRush frmLevelUpru = new FrmLevelUpRush();
                     frmLevelUpru.Show();
 
                 }

@@ -1,6 +1,6 @@
 ﻿namespace GenericRPG
 {
-    partial class FrmLevelUpRL
+    partial class FrmLevelUpRoll
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -40,7 +41,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblOldStr = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lblNewLevel = new System.Windows.Forms.Label();
@@ -53,13 +54,22 @@
             this.label14 = new System.Windows.Forms.Label();
             this.lblNewStr = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::GenericRPG.Properties.Resources.roll;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Image = global::GenericRPG.Properties.Resources.roll;
+            this.pictureBox1.Location = new System.Drawing.Point(382, 141);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(286, 446);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // panel1
             // 
@@ -75,11 +85,11 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.lblOldStr);
-            this.panel1.Location = new System.Drawing.Point(36, 74);
+            this.panel1.Location = new System.Drawing.Point(32, 141);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(278, 363);
-            this.panel1.TabIndex = 40;
+            this.panel1.TabIndex = 26;
             // 
             // label16
             // 
@@ -218,17 +228,25 @@
             this.lblOldStr.TabIndex = 16;
             this.lblOldStr.Text = "label1";
             // 
-            // pictureBox1
+            // panel2
             // 
-            this.pictureBox1.BackgroundImage = global::GenericRPG.Properties.Resources.cinroll;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(-9, -9);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(993, 592);
-            this.pictureBox1.TabIndex = 38;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.label17);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.lblNewLevel);
+            this.panel2.Controls.Add(this.lblNewMana);
+            this.panel2.Controls.Add(this.label9);
+            this.panel2.Controls.Add(this.lblNewHealth);
+            this.panel2.Controls.Add(this.lblNewDef);
+            this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.label13);
+            this.panel2.Controls.Add(this.label14);
+            this.panel2.Controls.Add(this.lblNewStr);
+            this.panel2.Location = new System.Drawing.Point(697, 141);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(279, 360);
+            this.panel2.TabIndex = 28;
             // 
             // label17
             // 
@@ -246,7 +264,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.label5.ForeColor = System.Drawing.Color.Red;
             this.label5.Location = new System.Drawing.Point(15, 91);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
@@ -259,7 +277,7 @@
             // 
             this.lblNewLevel.AutoSize = true;
             this.lblNewLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewLevel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.lblNewLevel.ForeColor = System.Drawing.Color.Red;
             this.lblNewLevel.Location = new System.Drawing.Point(147, 91);
             this.lblNewLevel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNewLevel.Name = "lblNewLevel";
@@ -300,15 +318,15 @@
             this.lblNewHealth.Location = new System.Drawing.Point(147, 160);
             this.lblNewHealth.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNewHealth.Name = "lblNewHealth";
-            this.lblNewHealth.Size = new System.Drawing.Size(241, 40);
+            this.lblNewHealth.Size = new System.Drawing.Size(119, 40);
             this.lblNewHealth.TabIndex = 15;
-            this.lblNewHealth.Text = "lblNewHealth";
+            this.lblNewHealth.Text = "label1";
             // 
             // lblNewDef
             // 
             this.lblNewDef.AutoSize = true;
             this.lblNewDef.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewDef.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lblNewDef.ForeColor = System.Drawing.Color.Navy;
             this.lblNewDef.Location = new System.Drawing.Point(147, 315);
             this.lblNewDef.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNewDef.Name = "lblNewDef";
@@ -333,7 +351,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label13.ForeColor = System.Drawing.Color.Navy;
             this.label13.Location = new System.Drawing.Point(60, 272);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
@@ -346,7 +364,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label14.ForeColor = System.Drawing.Color.Navy;
             this.label14.Location = new System.Drawing.Point(50, 315);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
@@ -359,7 +377,7 @@
             // 
             this.lblNewStr.AutoSize = true;
             this.lblNewStr.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewStr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lblNewStr.ForeColor = System.Drawing.Color.Navy;
             this.lblNewStr.Location = new System.Drawing.Point(147, 272);
             this.lblNewStr.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNewStr.Name = "lblNewStr";
@@ -370,66 +388,66 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.ForeColor = System.Drawing.Color.DeepPink;
-            this.btnClose.Location = new System.Drawing.Point(331, 14);
+            this.btnClose.ForeColor = System.Drawing.Color.Magenta;
+            this.btnClose.Location = new System.Drawing.Point(382, 37);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(327, 51);
-            this.btnClose.TabIndex = 37;
-            this.btnClose.Text = "Let\'s ROLL Out";
+            this.btnClose.Size = new System.Drawing.Size(266, 51);
+            this.btnClose.TabIndex = 28;
+            this.btnClose.Text = "Let\'s ROLL out.";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // panel2
+            // FrmLevelUpRoll
             // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Controls.Add(this.label17);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.lblNewLevel);
-            this.panel2.Controls.Add(this.lblNewMana);
-            this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.lblNewHealth);
-            this.panel2.Controls.Add(this.lblNewDef);
-            this.panel2.Controls.Add(this.label12);
-            this.panel2.Controls.Add(this.label13);
-            this.panel2.Controls.Add(this.label14);
-            this.panel2.Controls.Add(this.lblNewStr);
-            this.panel2.Location = new System.Drawing.Point(669, 74);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(279, 360);
-            this.panel2.TabIndex = 36;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.SystemColors.Control;
-            this.pictureBox2.BackgroundImage = global::GenericRPG.Properties.Resources.roll;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(345, 74);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(299, 492);
-            this.pictureBox2.TabIndex = 39;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click_1);
-            // 
-            // FrmLevelUpRL
-            // 
-            this.ClientSize = new System.Drawing.Size(973, 578);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pictureBox2);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
+            this.BackgroundImage = global::GenericRPG.Properties.Resources.cinroll;
+            this.ClientSize = new System.Drawing.Size(1011, 631);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "FrmLevelUpRL";
+            this.Name = "FrmLevelUpRoll";
+            this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblOldLevel;
+        private System.Windows.Forms.Label lblOldMana;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblOldHealth;
+        private System.Windows.Forms.Label lblOldDef;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblOldStr;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblNewLevel;
+        private System.Windows.Forms.Label lblNewMana;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblNewHealth;
+        private System.Windows.Forms.Label lblNewDef;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lblNewStr;
+        private System.Windows.Forms.Button btnClose;
     }
 }

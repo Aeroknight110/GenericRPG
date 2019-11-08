@@ -45,11 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmCust.cs">
+    <Compile Include="FrmLevelUpRush.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmCust.Designer.cs">
-      <DependentUpon>FrmCust.cs</DependentUpon>
+    <Compile Include="FrmLevelUpRush.Designer.cs">
+      <DependentUpon>FrmLevelUpRush.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmLevelUpRoll.cs">
       <SubType>Form</SubType>
@@ -57,11 +57,11 @@
     <Compile Include="FrmLevelUpRoll.Designer.cs">
       <DependentUpon>FrmLevelUpRoll.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmLevelupRush.cs">
+    <Compile Include="FrmCust.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmLevelupRush.Designer.cs">
-      <DependentUpon>FrmLevelupRush.cs</DependentUpon>
+    <Compile Include="FrmCust.Designer.cs">
+      <DependentUpon>FrmCust.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmShop.cs">
       <SubType>Form</SubType>
@@ -119,14 +119,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmCust.resx">
-      <DependentUpon>FrmCust.cs</DependentUpon>
+    <EmbeddedResource Include="FrmLevelUpRush.resx">
+      <DependentUpon>FrmLevelUpRush.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLevelUpRoll.resx">
       <DependentUpon>FrmLevelUpRoll.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmLevelupRush.resx">
-      <DependentUpon>FrmLevelupRush.cs</DependentUpon>
+    <EmbeddedResource Include="FrmCust.resx">
+      <DependentUpon>FrmCust.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmShop.resx">
       <DependentUpon>FrmShop.cs</DependentUpon>
