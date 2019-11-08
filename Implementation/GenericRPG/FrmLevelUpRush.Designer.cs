@@ -74,12 +74,12 @@
             // 
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.Coral;
-            this.btnClose.Location = new System.Drawing.Point(497, 45);
+            this.btnClose.Location = new System.Drawing.Point(380, 45);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(238, 51);
+            this.btnClose.Size = new System.Drawing.Size(486, 51);
             this.btnClose.TabIndex = 28;
-            this.btnClose.Text = "Bark Bork";
+            this.btnClose.Text = "Bark Bark (Can we go now?)";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -409,7 +409,7 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.pictureBox1);
             this.Name = "FrmLevelUpRush";
-            this.Text = "Form1";
+            this.Text = "Bark(Level Up)";
             this.Load += new System.EventHandler(this.FrmLevelUpRush_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);

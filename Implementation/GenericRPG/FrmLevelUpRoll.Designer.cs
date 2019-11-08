@@ -394,7 +394,7 @@
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(266, 51);
             this.btnClose.TabIndex = 28;
-            this.btnClose.Text = "Let\'s ROLL out.";
+            this.btnClose.Text = "Let\'s Roll Out.";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -410,7 +410,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "FrmLevelUpRoll";
-            this.Text = "Form1";
+            this.Text = "Level up!  ";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);

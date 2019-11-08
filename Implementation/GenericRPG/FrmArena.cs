@@ -111,7 +111,7 @@ namespace GenericRPG
                 float prevEnemyHealth = Reciever.Health;
                 Attacker.SimpleAttack(Reciever);
                 PartyDamage = +(float)Math.Round(prevEnemyHealth - Reciever.Health);
-                MidFightlabel.Text += Attacker.Name + " attacked ";
+                MidFightlabel.Text += Attacker.Name + " attacked. ";
                 if (enemy.Health <= 0)
                 {
                     float X = enemy.XpDropped;
@@ -183,7 +183,8 @@ namespace GenericRPG
                     FrmClass f1 = new FrmClass();
                     f1.Show();
                 }
-                if (roll.ShouldLevelUp)
+            } 
+            if (roll.ShouldLevelUp)
                 {
                     FrmLevelUpRoll frmLevelUprl = new FrmLevelUpRoll();
                     frmLevelUprl.Show();
@@ -195,7 +196,7 @@ namespace GenericRPG
                     frmLevelUpru.Show();
 
                 }
-            }
+            
         }
         private void btnSimpleAttack_Click(object sender, EventArgs e)
         {
@@ -260,8 +261,8 @@ namespace GenericRPG
                 else
                 {
                     UpdateStats();
-                    SimAtk(roll, enemy);
                     SimAtk(rush, enemy);
+                    SimAtk(roll, enemy);
                     MidFightlabel.Text += " Damage dealt by party = " + Math.Round(PartyDamage);
                     MidFightlabel.Visible = true;
                     
