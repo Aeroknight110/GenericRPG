@@ -353,11 +353,11 @@ namespace GenericRPG
                 }
             }
         }
-           
-                  
-               
-            
-        
+
+
+
+
+
 
 
         private void btnRun_Click(object sender, EventArgs e)
@@ -372,9 +372,35 @@ namespace GenericRPG
             }
             else
             {
+                float prevPlayerHealth = character.Health;
                 enemy.SimpleAttack(character);
-                UpdateStats();
+                float playerDamage = (float)Math.Round(prevPlayerHealth - character.Health);
+                lblPlayerDamage.ForeColor = Color.Red;
+                lblPlayerDamage.Text = playerDamage.ToString();
+                lblPlayerDamage.Visible = true;
+                tmrPlayerDamage.Enabled = true;
+                if (character.Health <= 0)
+                {
+                    if (character.undead)
+                    {
+                        UpdateStats();
+                        character.Health = character.MaxHealth;
+                    }
+                    else
+                    {
+                        UpdateStats();
+                        game.ChangeState(GameState.DEAD);
+                        lblEndFightMessage.Text = "You Were Defeated!";
+                        lblEndFightMessage.Visible = true;
+                        Refresh();
+                        Thread.Sleep(1200);
+                        EndFight();
+                        FrmGameOver frmGameOver = new FrmGameOver();
+                        frmGameOver.Show();
+                    }
+                }
             }
+            UpdateStats();
         }
 
         private void tmrPlayerDamage_Tick(object sender, EventArgs e)
