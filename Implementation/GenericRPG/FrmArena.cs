@@ -469,6 +469,9 @@ namespace GenericRPG
                     lblPlayerDamage.Text = playerHeal.ToString();
                     lblPlayerDamage.Visible = true;
                     lblPlayerDamage.Enabled = true;
+                    tmrPlayerDamage.Enabled = true;
+
+
                     character.UsePt(1);
                     UpdateStats();
                     
