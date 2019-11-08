@@ -79,6 +79,7 @@ namespace GameLibrary {
         }
     public void UsePt(float total){
           Pt -= total;
+            
     }
 
    public override void LevelUp()
