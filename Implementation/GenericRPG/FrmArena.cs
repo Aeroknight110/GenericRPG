@@ -347,6 +347,7 @@ namespace GenericRPG
                         UpdateStats();
                         MagAtk(roll, enemy);
                         MagAtk(rush, enemy);
+                        MidFightlabel.Text += " Damage dealt by party = " + Math.Round(PartyDamage);
                         MidFightlabel.Visible = true;
                     }
                 }
