@@ -42,7 +42,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
@@ -65,24 +64,27 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(337, -72);
+            this.btnClose.ForeColor = System.Drawing.Color.Coral;
+            this.btnClose.Location = new System.Drawing.Point(404, 37);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(238, 51);
             this.btnClose.TabIndex = 31;
-            this.btnClose.Text = "Ok, I get it";
+            this.btnClose.Text = "Bork Bark";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click_1);
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::GenericRPG.Properties.Resources.rushpile;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(-4, -5);
+            this.pictureBox1.Location = new System.Drawing.Point(-2, -5);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(993, 592);
+            this.pictureBox1.Size = new System.Drawing.Size(1092, 641);
             this.pictureBox1.TabIndex = 32;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // lblNewStr
             // 
@@ -95,6 +97,7 @@
             this.lblNewStr.Size = new System.Drawing.Size(119, 40);
             this.lblNewStr.TabIndex = 16;
             this.lblNewStr.Text = "label1";
+            this.lblNewStr.Click += new System.EventHandler(this.lblNewStr_Click);
             // 
             // label14
             // 
@@ -108,6 +111,7 @@
             this.label14.TabIndex = 21;
             this.label14.Text = "Def:";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
             // label13
             // 
@@ -121,6 +125,7 @@
             this.label13.TabIndex = 20;
             this.label13.Text = "Str:";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
             // label12
             // 
@@ -134,6 +139,7 @@
             this.label12.TabIndex = 22;
             this.label12.Text = "Mana:";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // lblNewDef
             // 
@@ -146,6 +152,7 @@
             this.lblNewDef.Size = new System.Drawing.Size(119, 40);
             this.lblNewDef.TabIndex = 17;
             this.lblNewDef.Text = "label1";
+            this.lblNewDef.Click += new System.EventHandler(this.lblNewDef_Click);
             // 
             // lblNewHealth
             // 
@@ -158,6 +165,7 @@
             this.lblNewHealth.Size = new System.Drawing.Size(119, 40);
             this.lblNewHealth.TabIndex = 15;
             this.lblNewHealth.Text = "label1";
+            this.lblNewHealth.Click += new System.EventHandler(this.lblNewHealth_Click);
             // 
             // label9
             // 
@@ -171,6 +179,7 @@
             this.label9.TabIndex = 19;
             this.label9.Text = "Health:";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // lblNewMana
             // 
@@ -183,6 +192,7 @@
             this.lblNewMana.Size = new System.Drawing.Size(119, 40);
             this.lblNewMana.TabIndex = 18;
             this.lblNewMana.Text = "label1";
+            this.lblNewMana.Click += new System.EventHandler(this.lblNewMana_Click);
             // 
             // lblNewLevel
             // 
@@ -195,6 +205,7 @@
             this.lblNewLevel.Size = new System.Drawing.Size(119, 40);
             this.lblNewLevel.TabIndex = 23;
             this.lblNewLevel.Text = "label1";
+            this.lblNewLevel.Click += new System.EventHandler(this.lblNewLevel_Click);
             // 
             // label5
             // 
@@ -208,6 +219,7 @@
             this.label5.TabIndex = 24;
             this.label5.Text = "Level:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label17
             // 
@@ -220,6 +232,7 @@
             this.label17.Size = new System.Drawing.Size(216, 47);
             this.label17.TabIndex = 28;
             this.label17.Text = "New Stats";
+            this.label17.Click += new System.EventHandler(this.label17_Click);
             // 
             // panel2
             // 
@@ -235,34 +248,24 @@
             this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.label14);
             this.panel2.Controls.Add(this.lblNewStr);
-            this.panel2.Location = new System.Drawing.Point(674, 78);
+            this.panel2.Location = new System.Drawing.Point(767, 138);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(279, 360);
             this.panel2.TabIndex = 30;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Coral;
-            this.button1.Location = new System.Drawing.Point(376, 78);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(238, 51);
-            this.button1.TabIndex = 33;
-            this.button1.Text = "Bork Bark";
-            this.button1.UseVisualStyleBackColor = true;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.SystemColors.Control;
             this.pictureBox2.BackgroundImage = global::GenericRPG.Properties.Resources.Rush;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(376, 169);
+            this.pictureBox2.Location = new System.Drawing.Point(373, 130);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(238, 272);
+            this.pictureBox2.Size = new System.Drawing.Size(299, 397);
             this.pictureBox2.TabIndex = 34;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // panel1
             // 
@@ -278,11 +281,12 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.lblOldStr);
-            this.panel1.Location = new System.Drawing.Point(41, 78);
+            this.panel1.Location = new System.Drawing.Point(13, 130);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(278, 363);
             this.panel1.TabIndex = 35;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label16
             // 
@@ -295,6 +299,7 @@
             this.label16.Size = new System.Drawing.Size(198, 47);
             this.label16.TabIndex = 27;
             this.label16.Text = "Old Stats";
+            this.label16.Click += new System.EventHandler(this.label16_Click);
             // 
             // label6
             // 
@@ -308,6 +313,7 @@
             this.label6.TabIndex = 24;
             this.label6.Text = "Level:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // lblOldLevel
             // 
@@ -320,6 +326,7 @@
             this.lblOldLevel.Size = new System.Drawing.Size(119, 40);
             this.lblOldLevel.TabIndex = 23;
             this.lblOldLevel.Text = "label1";
+            this.lblOldLevel.Click += new System.EventHandler(this.lblOldLevel_Click);
             // 
             // lblOldMana
             // 
@@ -332,6 +339,7 @@
             this.lblOldMana.Size = new System.Drawing.Size(119, 40);
             this.lblOldMana.TabIndex = 18;
             this.lblOldMana.Text = "label1";
+            this.lblOldMana.Click += new System.EventHandler(this.lblOldMana_Click);
             // 
             // label4
             // 
@@ -345,6 +353,7 @@
             this.label4.TabIndex = 19;
             this.label4.Text = "Health:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // lblOldHealth
             // 
@@ -357,6 +366,7 @@
             this.lblOldHealth.Size = new System.Drawing.Size(119, 40);
             this.lblOldHealth.TabIndex = 15;
             this.lblOldHealth.Text = "label1";
+            this.lblOldHealth.Click += new System.EventHandler(this.lblOldHealth_Click);
             // 
             // lblOldDef
             // 
@@ -369,6 +379,7 @@
             this.lblOldDef.Size = new System.Drawing.Size(119, 40);
             this.lblOldDef.TabIndex = 17;
             this.lblOldDef.Text = "label1";
+            this.lblOldDef.Click += new System.EventHandler(this.lblOldDef_Click);
             // 
             // label1
             // 
@@ -382,6 +393,7 @@
             this.label1.TabIndex = 22;
             this.label1.Text = "Mana:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label3
             // 
@@ -395,6 +407,7 @@
             this.label3.TabIndex = 20;
             this.label3.Text = "Str:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -408,6 +421,7 @@
             this.label2.TabIndex = 21;
             this.label2.Text = "Def:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // lblOldStr
             // 
@@ -420,15 +434,15 @@
             this.lblOldStr.Size = new System.Drawing.Size(119, 40);
             this.lblOldStr.TabIndex = 16;
             this.lblOldStr.Text = "label1";
+            this.lblOldStr.Click += new System.EventHandler(this.lblOldStr_Click);
             // 
             // FrmLevelUpRu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(985, 552);
+            this.ClientSize = new System.Drawing.Size(1092, 627);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pictureBox1);
@@ -460,7 +474,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label16;
